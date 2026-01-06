@@ -271,5 +271,147 @@
     "Count": 0,
     "RejectedCount": 1,
     "Selected": false
+  },
+  {
+    "GeneratedOn": "2026-01-06T13:41:05.882303",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [],
+    "TotalProfiles": 1,
+    "Selected Profiles": [],
+    "Rejected Profiles": [
+      "AbdulBashith_Full stack developer_MNR.pdf"
+    ],
+    "Count": 0,
+    "RejectedCount": 1,
+    "Selected": false
+  },
+  {
+    "GeneratedOn": "2026-01-06T13:41:36.582090",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [],
+    "TotalProfiles": 1,
+    "Selected Profiles": [],
+    "Rejected Profiles": [
+      "AbdulBashith_Full stack developer_MNR.pdf"
+    ],
+    "Count": 0,
+    "RejectedCount": 1,
+    "Selected": false
+  },
+  {
+    "GeneratedOn": "2026-01-06T13:41:46.858349",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [],
+    "TotalProfiles": 2,
+    "Selected Profiles": [],
+    "Rejected Profiles": [
+      "PrakashK_ Embedded System Engineer_MNR Solutions.pdf",
+      "Tazeenekhakashan-Embedded system Eng-MNR.pdf"
+    ],
+    "Count": 0,
+    "RejectedCount": 2,
+    "Selected": false
+  },
+  {
+    "GeneratedOn": "2026-01-06T17:35:15.495997",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [
+      [
+        "Python",
+        "Angular"
+      ],
+      [
+        "JavaScript",
+        "Typescript"
+      ],
+      "HTML",
+      "CSS",
+      "Node.js",
+      [
+        "Java",
+        "Spring",
+        "Django"
+      ]
+    ],
+    "TotalProfiles": 2,
+    "Selected Profiles": [
+      "PrakashK_ Embedded System Engineer_MNR Solutions.pdf"
+    ],
+    "Rejected Profiles": [
+      "Tazeenekhakashan-Embedded system Eng-MNR.pdf"
+    ],
+    "Count": 1,
+    "RejectedCount": 1,
+    "Selected": true
+  },
+  {
+    "GeneratedOn": "2026-01-06T17:40:02.783172",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [
+      [
+        "Python",
+        "Angular"
+      ],
+      [
+        "JavaScript",
+        "Typescript"
+      ],
+      "HTML",
+      "CSS",
+      "Node.js",
+      [
+        "Java",
+        "Spring",
+        "Django"
+      ]
+    ],
+    "TotalProfiles": 2,
+    "Selected Profiles": [
+      "PrakashK_ Embedded System Engineer_MNR Solutions.pdf"
+    ],
+    "Rejected Profiles": [
+      "Tazeenekhakashan-Embedded system Eng-MNR.pdf"
+    ],
+    "Count": 1,
+    "RejectedCount": 1,
+    "Selected": true
+  },
+  {
+    "GeneratedOn": "2026-01-06T17:40:46.462433",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [
+      [
+        "Python",
+        "Angular"
+      ],
+      [
+        "JavaScript",
+        "Typescript"
+      ],
+      "HTML",
+      "CSS",
+      "Node.js",
+      [
+        "Java",
+        "Spring",
+        "Django"
+      ]
+    ],
+    "TotalProfiles": 2,
+    "Selected Profiles": [
+      "PrakashK_ Embedded System Engineer_MNR Solutions.pdf"
+    ],
+    "Rejected Profiles": [
+      "Tazeenekhakashan-Embedded system Eng-MNR.pdf"
+    ],
+    "Count": 1,
+    "RejectedCount": 1,
+    "Selected": true
   }
 ]

@@ -6006,3 +6006,414 @@ NameError: name 'MODEL_PATH' is not defined
 2026-01-06 15:24:45,635 - INFO - app - Cleaning temp directory
 2026-01-06 15:24:45,636 - INFO - app - Returning analysis result
 2026-01-06 15:24:45,638 - INFO - screening_logger - 📊 Screening log saved successfully
+2026-01-06 19:07:02,980 - INFO - app - 🚀 Backend API Started
+2026-01-06 19:07:22,658 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: mps
+2026-01-06 19:07:22,658 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-06 19:07:22,784 - DEBUG - urllib3.connectionpool - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-06 19:07:23,056 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-06 19:07:23,073 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-06 19:07:23,310 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-06 19:07:23,329 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-06 19:07:23,556 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-06 19:07:23,570 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-06 19:07:23,794 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-06 19:07:23,811 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-06 19:07:24,043 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-06 19:07:24,059 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-06 19:07:24,296 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-06 19:07:24,314 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-06 19:07:24,543 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-06 19:07:24,787 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-06 19:07:24,805 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-06 19:07:25,192 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-06 19:07:25,205 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-06 19:07:25,446 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-06 19:07:25,710 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=True&expand=False HTTP/1.1" 200 6465
+2026-01-06 19:07:26,016 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-06 19:07:26,032 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-06 19:07:26,264 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6863
+2026-01-06 19:07:26,476 - INFO - root - ======================================================
+2026-01-06 19:07:26,476 - INFO - root - 🚀 Starting JD Skill Extractor Backend
+2026-01-06 19:07:26,476 - INFO - root - ======================================================
+2026-01-06 19:11:05,805 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:05,807 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-06 19:11:05,807 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:88]
+2026-01-06 19:11:05,807 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:05,807 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:05,807 - DEBUG - python_multipart.multipart - Calling on_part_data with data[92:355]
+2026-01-06 19:11:05,807 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:05,808 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:05,808 - DEBUG - python_multipart.multipart - Calling on_header_field with data[399:418]
+2026-01-06 19:11:05,808 - DEBUG - python_multipart.multipart - Calling on_header_value with data[420:499]
+2026-01-06 19:11:05,808 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:05,808 - DEBUG - python_multipart.multipart - Calling on_header_field with data[501:513]
+2026-01-06 19:11:05,808 - DEBUG - python_multipart.multipart - Calling on_header_value with data[515:530]
+2026-01-06 19:11:05,808 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:05,808 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:05,809 - DEBUG - python_multipart.multipart - Calling on_part_data with data[534:19447]
+2026-01-06 19:11:05,809 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:9300]
+2026-01-06 19:11:05,815 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:4248]
+2026-01-06 19:11:05,816 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:5664]
+2026-01-06 19:11:05,827 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:17800]
+2026-01-06 19:11:05,828 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:4388]
+2026-01-06 19:11:05,828 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:05,829 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:05,829 - DEBUG - python_multipart.multipart - Calling on_header_field with data[4432:4451]
+2026-01-06 19:11:05,829 - DEBUG - python_multipart.multipart - Calling on_header_value with data[4453:4477]
+2026-01-06 19:11:05,829 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:05,829 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:05,830 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:05,830 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:05,830 - DEBUG - python_multipart.multipart - Calling on_header_field with data[4525:4544]
+2026-01-06 19:11:05,830 - DEBUG - python_multipart.multipart - Calling on_header_value with data[4546:4568]
+2026-01-06 19:11:05,830 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:05,830 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:05,831 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:05,831 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-06 19:11:05,833 - INFO - app - 📥 /analyze-resumes called
+2026-01-06 19:11:05,833 - INFO - root - 🌐 API call: parse_jd()
+2026-01-06 19:11:05,833 - DEBUG - root - 🔍 Extracting Client, Role, Profiles Received From...
+2026-01-06 19:11:05,834 - INFO - root - 📌 Parsed Metadata: {'client': '', 'role': '', 'profilesReceivedFrom': ''}
+2026-01-06 19:11:05,835 - DEBUG - root - 🔍 Checking if JD is already in Primary/Secondary/Other format
+2026-01-06 19:11:05,836 - DEBUG - root - ✅ Extracted from formatted JD: {'primarySkills': [], 'secondarySkills': [], 'otherSkills': []}
+2026-01-06 19:11:05,836 - INFO - root - ⚡ LLM extraction skipped (Render-safe)
+2026-01-06 19:11:05,883 - INFO - screening_logger - 📊 Screening log saved successfully
+2026-01-06 19:11:36,469 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:36,470 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-06 19:11:36,470 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:88]
+2026-01-06 19:11:36,470 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:36,470 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_part_data with data[92:355]
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_header_field with data[399:418]
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_header_value with data[420:499]
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_header_field with data[501:513]
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_header_value with data[515:530]
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:36,471 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:36,472 - DEBUG - python_multipart.multipart - Calling on_part_data with data[534:4171]
+2026-01-06 19:11:36,472 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:8192]
+2026-01-06 19:11:36,480 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:15580]
+2026-01-06 19:11:36,483 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:804]
+2026-01-06 19:11:36,533 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:9912]
+2026-01-06 19:11:36,533 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7888]
+2026-01-06 19:11:36,534 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:4248]
+2026-01-06 19:11:36,534 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1416]
+2026-01-06 19:11:36,535 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1416]
+2026-01-06 19:11:36,537 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:4248]
+2026-01-06 19:11:36,538 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2972]
+2026-01-06 19:11:36,538 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:36,538 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:36,538 - DEBUG - python_multipart.multipart - Calling on_header_field with data[3016:3035]
+2026-01-06 19:11:36,538 - DEBUG - python_multipart.multipart - Calling on_header_value with data[3037:3061]
+2026-01-06 19:11:36,539 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:36,539 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:36,539 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:36,539 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:36,539 - DEBUG - python_multipart.multipart - Calling on_header_field with data[3109:3128]
+2026-01-06 19:11:36,540 - DEBUG - python_multipart.multipart - Calling on_header_value with data[3130:3152]
+2026-01-06 19:11:36,540 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:36,540 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:36,540 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:36,540 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-06 19:11:36,541 - INFO - app - 📥 /analyze-resumes called
+2026-01-06 19:11:36,541 - INFO - root - 🌐 API call: parse_jd()
+2026-01-06 19:11:36,541 - DEBUG - root - 🔍 Extracting Client, Role, Profiles Received From...
+2026-01-06 19:11:36,541 - INFO - root - 📌 Parsed Metadata: {'client': '', 'role': '', 'profilesReceivedFrom': ''}
+2026-01-06 19:11:36,542 - DEBUG - root - 🔍 Checking if JD is already in Primary/Secondary/Other format
+2026-01-06 19:11:36,542 - DEBUG - root - ✅ Extracted from formatted JD: {'primarySkills': [], 'secondarySkills': [], 'otherSkills': []}
+2026-01-06 19:11:36,542 - INFO - root - ⚡ LLM extraction skipped (Render-safe)
+2026-01-06 19:11:36,585 - INFO - screening_logger - 📊 Screening log saved successfully
+2026-01-06 19:11:46,454 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:46,455 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-06 19:11:46,455 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:88]
+2026-01-06 19:11:46,455 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:46,455 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:46,455 - DEBUG - python_multipart.multipart - Calling on_part_data with data[92:355]
+2026-01-06 19:11:46,456 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:46,456 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:46,456 - DEBUG - python_multipart.multipart - Calling on_header_field with data[399:418]
+2026-01-06 19:11:46,456 - DEBUG - python_multipart.multipart - Calling on_header_value with data[420:510]
+2026-01-06 19:11:46,457 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:46,457 - DEBUG - python_multipart.multipart - Calling on_header_field with data[512:524]
+2026-01-06 19:11:46,457 - DEBUG - python_multipart.multipart - Calling on_header_value with data[526:541]
+2026-01-06 19:11:46,457 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:46,457 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:46,458 - DEBUG - python_multipart.multipart - Calling on_part_data with data[545:1097]
+2026-01-06 19:11:46,465 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1418]
+2026-01-06 19:11:46,467 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7090]
+2026-01-06 19:11:46,467 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7876]
+2026-01-06 19:11:46,492 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1416]
+2026-01-06 19:11:46,493 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:8496]
+2026-01-06 19:11:46,494 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:6472]
+2026-01-06 19:11:46,626 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2832]
+2026-01-06 19:11:46,627 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:13552]
+2026-01-06 19:11:46,646 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2832]
+2026-01-06 19:11:46,646 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:9456]
+2026-01-06 19:11:46,647 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2998]
+2026-01-06 19:11:46,672 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:8879]
+2026-01-06 19:11:46,672 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:46,672 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:46,672 - DEBUG - python_multipart.multipart - Calling on_header_field with data[8923:8942]
+2026-01-06 19:11:46,673 - DEBUG - python_multipart.multipart - Calling on_header_value with data[8944:9026]
+2026-01-06 19:11:46,673 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:46,673 - DEBUG - python_multipart.multipart - Calling on_header_field with data[9028:9040]
+2026-01-06 19:11:46,673 - DEBUG - python_multipart.multipart - Calling on_header_value with data[9042:9057]
+2026-01-06 19:11:46,673 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:46,673 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:46,673 - DEBUG - python_multipart.multipart - Calling on_part_data with data[9061:13386]
+2026-01-06 19:11:46,692 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:12744]
+2026-01-06 19:11:46,693 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:3640]
+2026-01-06 19:11:46,716 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:8480]
+2026-01-06 19:11:46,717 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7904]
+2026-01-06 19:11:46,790 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:8496]
+2026-01-06 19:11:46,791 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:9439]
+2026-01-06 19:11:46,791 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:46,791 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:46,791 - DEBUG - python_multipart.multipart - Calling on_header_field with data[9483:9502]
+2026-01-06 19:11:46,792 - DEBUG - python_multipart.multipart - Calling on_header_value with data[9504:9528]
+2026-01-06 19:11:46,792 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:46,792 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:46,793 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:46,793 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 19:11:46,793 - DEBUG - python_multipart.multipart - Calling on_header_field with data[9576:9595]
+2026-01-06 19:11:46,793 - DEBUG - python_multipart.multipart - Calling on_header_value with data[9597:9619]
+2026-01-06 19:11:46,793 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 19:11:46,794 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 19:11:46,794 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 19:11:46,794 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-06 19:11:46,795 - INFO - app - 📥 /analyze-resumes called
+2026-01-06 19:11:46,795 - INFO - root - 🌐 API call: parse_jd()
+2026-01-06 19:11:46,795 - DEBUG - root - 🔍 Extracting Client, Role, Profiles Received From...
+2026-01-06 19:11:46,795 - INFO - root - 📌 Parsed Metadata: {'client': '', 'role': '', 'profilesReceivedFrom': ''}
+2026-01-06 19:11:46,795 - DEBUG - root - 🔍 Checking if JD is already in Primary/Secondary/Other format
+2026-01-06 19:11:46,796 - DEBUG - root - ✅ Extracted from formatted JD: {'primarySkills': [], 'secondarySkills': [], 'otherSkills': []}
+2026-01-06 19:11:46,796 - INFO - root - ⚡ LLM extraction skipped (Render-safe)
+2026-01-06 19:11:46,861 - INFO - screening_logger - 📊 Screening log saved successfully
+2026-01-06 23:03:07,390 - INFO - app - 🚀 Backend API Started
+2026-01-06 23:03:29,800 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: mps
+2026-01-06 23:03:29,800 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-06 23:03:29,892 - DEBUG - urllib3.connectionpool - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-06 23:03:30,165 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-06 23:03:30,184 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-06 23:03:30,425 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-06 23:03:30,438 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-06 23:03:30,686 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-06 23:03:30,702 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-06 23:03:31,336 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-06 23:03:31,351 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-06 23:03:31,621 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-06 23:03:31,639 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-06 23:03:31,868 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-06 23:03:31,885 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-06 23:03:32,118 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-06 23:03:32,355 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-06 23:03:32,371 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-06 23:03:32,768 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-06 23:03:32,782 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-06 23:03:33,027 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-06 23:03:33,262 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=True&expand=False HTTP/1.1" 200 6465
+2026-01-06 23:03:33,538 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-06 23:03:33,558 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-06 23:03:33,802 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6881
+2026-01-06 23:03:34,065 - INFO - root - ======================================================
+2026-01-06 23:03:34,065 - INFO - root - 🚀 Starting JD Skill Extractor Backend
+2026-01-06 23:03:34,065 - INFO - root - ======================================================
+2026-01-06 23:04:42,959 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:04:42,960 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-06 23:04:42,960 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:88]
+2026-01-06 23:04:42,960 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:04:42,960 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:04:42,960 - DEBUG - python_multipart.multipart - Calling on_part_data with data[92:355]
+2026-01-06 23:04:42,961 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:04:42,961 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:04:42,961 - DEBUG - python_multipart.multipart - Calling on_header_field with data[399:418]
+2026-01-06 23:04:42,961 - DEBUG - python_multipart.multipart - Calling on_header_value with data[420:510]
+2026-01-06 23:04:42,961 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:04:42,962 - DEBUG - python_multipart.multipart - Calling on_header_field with data[512:524]
+2026-01-06 23:04:42,962 - DEBUG - python_multipart.multipart - Calling on_header_value with data[526:541]
+2026-01-06 23:04:42,962 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:04:42,962 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:04:42,962 - DEBUG - python_multipart.multipart - Calling on_part_data with data[545:74414]
+2026-01-06 23:04:42,963 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:04:42,963 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:04:42,963 - DEBUG - python_multipart.multipart - Calling on_header_field with data[74458:74477]
+2026-01-06 23:04:42,963 - DEBUG - python_multipart.multipart - Calling on_header_value with data[74479:74561]
+2026-01-06 23:04:42,963 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:04:42,963 - DEBUG - python_multipart.multipart - Calling on_header_field with data[74563:74575]
+2026-01-06 23:04:42,963 - DEBUG - python_multipart.multipart - Calling on_header_value with data[74577:74592]
+2026-01-06 23:04:42,964 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:04:42,964 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:04:42,964 - DEBUG - python_multipart.multipart - Calling on_part_data with data[74596:129624]
+2026-01-06 23:04:42,964 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:04:42,964 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:04:42,964 - DEBUG - python_multipart.multipart - Calling on_header_field with data[129668:129687]
+2026-01-06 23:04:42,964 - DEBUG - python_multipart.multipart - Calling on_header_value with data[129689:129713]
+2026-01-06 23:04:42,965 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:04:42,965 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:04:42,965 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:04:42,965 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:04:42,965 - DEBUG - python_multipart.multipart - Calling on_header_field with data[129761:129780]
+2026-01-06 23:04:42,965 - DEBUG - python_multipart.multipart - Calling on_header_value with data[129782:129804]
+2026-01-06 23:04:42,965 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:04:42,965 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:04:42,966 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:04:42,966 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-06 23:04:42,967 - INFO - app - 📥 /analyze-resumes called
+2026-01-06 23:04:42,967 - INFO - app - JD Text length: 263 chars
+2026-01-06 23:04:42,967 - INFO - app - Total resumes received: 2
+2026-01-06 23:04:42,968 - INFO - app - JD Skills Parsed: {'primary': [['Python', 'Angular'], ['JavaScript', 'Typescript'], 'HTML', 'CSS', 'Node.js', ['Java', 'Spring', 'Django']], 'secondary': ['GCP', 'Kubernetes', 'Unit Testing'], 'other': ['Performance optimization', 'Code reviews', 'Unit testing', 'SDLC participation', 'Collaboration with product teams', 'Testing Frameworks']}
+2026-01-06 23:04:42,970 - INFO - app - Temp resume directory: /var/folders/xj/kvb1xq9n1_sdg8m5_qrcd2th0000gr/T/resumes_iiyrkp1w
+2026-01-06 23:04:42,970 - INFO - app - Processing resume: PrakashK_ Embedded System Engineer_MNR Solutions.pdf
+2026-01-06 23:04:42,970 - INFO - app - Resume size: 73869 bytes
+2026-01-06 23:04:43,001 - INFO - app - Extracted resume text length: 2181 chars
+2026-01-06 23:04:51,488 - INFO - app - Resume analysis output: {'Strengths': 'Python/Angular, JavaScript/Typescript, HTML, CSS, Node.js, Java/Spring/Django, Unit Testing, Performance optimization, Unit testing, Collaboration with product teams, Testing Frameworks', 'Missing Primary': '', 'Missing Secondary': 'GCP, Kubernetes', 'Primary Score': 100.0, 'Secondary Score': 33.33, 'Overall Score': 86.67, 'Years of Experience': 4, 'Status': 'Selected'}
+2026-01-06 23:04:51,488 - INFO - app - Processing resume: Tazeenekhakashan-Embedded system Eng-MNR.pdf
+2026-01-06 23:04:51,488 - INFO - app - Resume size: 55028 bytes
+2026-01-06 23:04:51,518 - INFO - app - Extracted resume text length: 3814 chars
+2026-01-06 23:05:15,494 - INFO - app - Resume analysis output: {'Strengths': 'Python/Angular, JavaScript/Typescript, HTML, Node.js, Performance optimization, Collaboration with product teams, Testing Frameworks', 'Missing Primary': 'CSS, Java/Spring/Django', 'Missing Secondary': 'GCP, Kubernetes, Unit Testing', 'Primary Score': 66.67, 'Secondary Score': 0.0, 'Overall Score': 53.34, 'Years of Experience': 5, 'Status': 'Not Selected'}
+2026-01-06 23:05:15,494 - INFO - app - Cleaning temp directory
+2026-01-06 23:05:15,495 - INFO - app - Returning analysis result
+2026-01-06 23:05:15,501 - INFO - screening_logger - 📊 Screening log saved successfully
+2026-01-06 23:09:32,284 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:09:32,286 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-06 23:09:32,286 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:88]
+2026-01-06 23:09:32,286 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:09:32,286 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:09:32,287 - DEBUG - python_multipart.multipart - Calling on_part_data with data[92:355]
+2026-01-06 23:09:32,287 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:09:32,287 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:09:32,287 - DEBUG - python_multipart.multipart - Calling on_header_field with data[399:418]
+2026-01-06 23:09:32,288 - DEBUG - python_multipart.multipart - Calling on_header_value with data[420:510]
+2026-01-06 23:09:32,288 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:09:32,288 - DEBUG - python_multipart.multipart - Calling on_header_field with data[512:524]
+2026-01-06 23:09:32,288 - DEBUG - python_multipart.multipart - Calling on_header_value with data[526:541]
+2026-01-06 23:09:32,288 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:09:32,288 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:09:32,289 - DEBUG - python_multipart.multipart - Calling on_part_data with data[545:23464]
+2026-01-06 23:09:32,289 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:13552]
+2026-01-06 23:09:32,289 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2832]
+2026-01-06 23:09:32,297 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:8496]
+2026-01-06 23:09:32,297 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:20024]
+2026-01-06 23:09:32,298 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1416]
+2026-01-06 23:09:32,299 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:4248]
+2026-01-06 23:09:32,302 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:382]
+2026-01-06 23:09:32,302 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:09:32,302 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:09:32,302 - DEBUG - python_multipart.multipart - Calling on_header_field with data[426:445]
+2026-01-06 23:09:32,303 - DEBUG - python_multipart.multipart - Calling on_header_value with data[447:529]
+2026-01-06 23:09:32,303 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:09:32,303 - DEBUG - python_multipart.multipart - Calling on_header_field with data[531:543]
+2026-01-06 23:09:32,303 - DEBUG - python_multipart.multipart - Calling on_header_value with data[545:560]
+2026-01-06 23:09:32,303 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:09:32,304 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:09:32,304 - DEBUG - python_multipart.multipart - Calling on_part_data with data[564:7888]
+2026-01-06 23:09:32,304 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7080]
+2026-01-06 23:09:32,305 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:5664]
+2026-01-06 23:09:32,305 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:3640]
+2026-01-06 23:09:32,307 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7080]
+2026-01-06 23:09:32,307 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:5664]
+2026-01-06 23:09:32,308 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:3640]
+2026-01-06 23:09:32,308 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2832]
+2026-01-06 23:09:32,308 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1416]
+2026-01-06 23:09:32,310 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:5664]
+2026-01-06 23:09:32,310 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1416]
+2026-01-06 23:09:32,313 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:3608]
+2026-01-06 23:09:32,313 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:09:32,313 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:09:32,313 - DEBUG - python_multipart.multipart - Calling on_header_field with data[3652:3671]
+2026-01-06 23:09:32,313 - DEBUG - python_multipart.multipart - Calling on_header_value with data[3673:3697]
+2026-01-06 23:09:32,313 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:09:32,313 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:09:32,314 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:09:32,314 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:09:32,314 - DEBUG - python_multipart.multipart - Calling on_header_field with data[3745:3764]
+2026-01-06 23:09:32,314 - DEBUG - python_multipart.multipart - Calling on_header_value with data[3766:3788]
+2026-01-06 23:09:32,314 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:09:32,314 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:09:32,314 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:09:32,314 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-06 23:09:32,316 - INFO - app - 📥 /analyze-resumes called
+2026-01-06 23:09:32,316 - INFO - app - JD Text length: 263 chars
+2026-01-06 23:09:32,317 - INFO - app - Total resumes received: 2
+2026-01-06 23:09:32,317 - INFO - app - JD Skills Parsed: {'primary': [['Python', 'Angular'], ['JavaScript', 'Typescript'], 'HTML', 'CSS', 'Node.js', ['Java', 'Spring', 'Django']], 'secondary': ['GCP', 'Kubernetes', 'Unit Testing'], 'other': ['Performance optimization', 'Code reviews', 'Unit testing', 'SDLC participation', 'Collaboration with product teams', 'Testing Frameworks']}
+2026-01-06 23:09:32,320 - INFO - app - Temp resume directory: /var/folders/xj/kvb1xq9n1_sdg8m5_qrcd2th0000gr/T/resumes_8zochwfh
+2026-01-06 23:09:32,320 - INFO - app - Processing resume: PrakashK_ Embedded System Engineer_MNR Solutions.pdf
+2026-01-06 23:09:32,321 - INFO - app - Resume size: 73869 bytes
+2026-01-06 23:09:32,342 - INFO - app - Extracted resume text length: 2181 chars
+2026-01-06 23:09:40,451 - INFO - app - Resume analysis output: {'Strengths': 'Python/Angular, JavaScript/Typescript, HTML, CSS, Node.js, Java/Spring/Django, Unit Testing, Performance optimization, Unit testing, Collaboration with product teams, Testing Frameworks', 'Missing Primary': '', 'Missing Secondary': 'GCP, Kubernetes', 'Primary Score': 100.0, 'Secondary Score': 33.33, 'Overall Score': 86.67, 'Years of Experience': 4, 'Status': 'Selected'}
+2026-01-06 23:09:40,451 - INFO - app - Processing resume: Tazeenekhakashan-Embedded system Eng-MNR.pdf
+2026-01-06 23:09:40,451 - INFO - app - Resume size: 55028 bytes
+2026-01-06 23:09:40,482 - INFO - app - Extracted resume text length: 3814 chars
+2026-01-06 23:10:02,780 - INFO - app - Resume analysis output: {'Strengths': 'Python/Angular, JavaScript/Typescript, HTML, Node.js, Performance optimization, Collaboration with product teams, Testing Frameworks', 'Missing Primary': 'CSS, Java/Spring/Django', 'Missing Secondary': 'GCP, Kubernetes, Unit Testing', 'Primary Score': 66.67, 'Secondary Score': 0.0, 'Overall Score': 53.34, 'Years of Experience': 5, 'Status': 'Not Selected'}
+2026-01-06 23:10:02,780 - INFO - app - Cleaning temp directory
+2026-01-06 23:10:02,783 - INFO - app - Returning analysis result
+2026-01-06 23:10:02,792 - INFO - screening_logger - 📊 Screening log saved successfully
+2026-01-06 23:10:17,060 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:10:17,061 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-06 23:10:17,062 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:88]
+2026-01-06 23:10:17,062 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:10:17,062 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:10:17,062 - DEBUG - python_multipart.multipart - Calling on_part_data with data[92:355]
+2026-01-06 23:10:17,063 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:10:17,063 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:10:17,063 - DEBUG - python_multipart.multipart - Calling on_header_field with data[399:418]
+2026-01-06 23:10:17,063 - DEBUG - python_multipart.multipart - Calling on_header_value with data[420:510]
+2026-01-06 23:10:17,063 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:10:17,063 - DEBUG - python_multipart.multipart - Calling on_header_field with data[512:524]
+2026-01-06 23:10:17,064 - DEBUG - python_multipart.multipart - Calling on_header_value with data[526:541]
+2026-01-06 23:10:17,064 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:10:17,064 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:10:17,064 - DEBUG - python_multipart.multipart - Calling on_part_data with data[545:27712]
+2026-01-06 23:10:17,065 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:46702]
+2026-01-06 23:10:17,065 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:10:17,065 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:10:17,065 - DEBUG - python_multipart.multipart - Calling on_header_field with data[46746:46765]
+2026-01-06 23:10:17,065 - DEBUG - python_multipart.multipart - Calling on_header_value with data[46767:46849]
+2026-01-06 23:10:17,065 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:10:17,066 - DEBUG - python_multipart.multipart - Calling on_header_field with data[46851:46863]
+2026-01-06 23:10:17,066 - DEBUG - python_multipart.multipart - Calling on_header_value with data[46865:46880]
+2026-01-06 23:10:17,066 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:10:17,066 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:10:17,066 - DEBUG - python_multipart.multipart - Calling on_part_data with data[46884:47736]
+2026-01-06 23:10:17,066 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:17800]
+2026-01-06 23:10:17,070 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:14968]
+2026-01-06 23:10:17,071 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:14968]
+2026-01-06 23:10:17,072 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2832]
+2026-01-06 23:10:17,073 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1416]
+2026-01-06 23:10:17,074 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2192]
+2026-01-06 23:10:17,074 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:10:17,074 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:10:17,074 - DEBUG - python_multipart.multipart - Calling on_header_field with data[2236:2255]
+2026-01-06 23:10:17,074 - DEBUG - python_multipart.multipart - Calling on_header_value with data[2257:2281]
+2026-01-06 23:10:17,075 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:10:17,075 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:10:17,075 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:10:17,075 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 23:10:17,075 - DEBUG - python_multipart.multipart - Calling on_header_field with data[2329:2348]
+2026-01-06 23:10:17,075 - DEBUG - python_multipart.multipart - Calling on_header_value with data[2350:2372]
+2026-01-06 23:10:17,076 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 23:10:17,076 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 23:10:17,076 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 23:10:17,076 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-06 23:10:17,077 - INFO - app - 📥 /analyze-resumes called
+2026-01-06 23:10:17,077 - INFO - app - JD Text length: 263 chars
+2026-01-06 23:10:17,077 - INFO - app - Total resumes received: 2
+2026-01-06 23:10:17,078 - INFO - app - JD Skills Parsed: {'primary': [['Python', 'Angular'], ['JavaScript', 'Typescript'], 'HTML', 'CSS', 'Node.js', ['Java', 'Spring', 'Django']], 'secondary': ['GCP', 'Kubernetes', 'Unit Testing'], 'other': ['Performance optimization', 'Code reviews', 'Unit testing', 'SDLC participation', 'Collaboration with product teams', 'Testing Frameworks']}
+2026-01-06 23:10:17,079 - INFO - app - Temp resume directory: /var/folders/xj/kvb1xq9n1_sdg8m5_qrcd2th0000gr/T/resumes_ronxyaut
+2026-01-06 23:10:17,079 - INFO - app - Processing resume: PrakashK_ Embedded System Engineer_MNR Solutions.pdf
+2026-01-06 23:10:17,080 - INFO - app - Resume size: 73869 bytes
+2026-01-06 23:10:17,109 - INFO - app - Extracted resume text length: 2181 chars
+2026-01-06 23:10:24,078 - INFO - app - Resume analysis output: {'Strengths': 'Python/Angular, JavaScript/Typescript, HTML, CSS, Node.js, Java/Spring/Django, Unit Testing, Performance optimization, Unit testing, Collaboration with product teams, Testing Frameworks', 'Missing Primary': '', 'Missing Secondary': 'GCP, Kubernetes', 'Primary Score': 100.0, 'Secondary Score': 33.33, 'Overall Score': 86.67, 'Years of Experience': 4, 'Status': 'Selected'}
+2026-01-06 23:10:24,078 - INFO - app - Processing resume: Tazeenekhakashan-Embedded system Eng-MNR.pdf
+2026-01-06 23:10:24,078 - INFO - app - Resume size: 55028 bytes
+2026-01-06 23:10:24,116 - INFO - app - Extracted resume text length: 3814 chars
+2026-01-06 23:10:46,459 - INFO - app - Resume analysis output: {'Strengths': 'Python/Angular, JavaScript/Typescript, HTML, Node.js, Performance optimization, Collaboration with product teams, Testing Frameworks', 'Missing Primary': 'CSS, Java/Spring/Django', 'Missing Secondary': 'GCP, Kubernetes, Unit Testing', 'Primary Score': 66.67, 'Secondary Score': 0.0, 'Overall Score': 53.34, 'Years of Experience': 5, 'Status': 'Not Selected'}
+2026-01-06 23:10:46,460 - INFO - app - Cleaning temp directory
+2026-01-06 23:10:46,462 - INFO - app - Returning analysis result
+2026-01-06 23:10:46,467 - INFO - screening_logger - 📊 Screening log saved successfully
+2026-01-06 23:11:03,237 - INFO - app - ROOT endpoint hit
+2026-01-06 23:11:05,937 - INFO - app - ROOT endpoint hit
+2026-01-06 23:11:26,475 - INFO - app - ROOT endpoint hit
