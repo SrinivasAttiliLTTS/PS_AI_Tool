@@ -1,0 +1,153 @@
+2025-11-28 16:18:17,023 - INFO - 🚀 Starting JD Skill Extractor backend
+2025-11-28 16:18:17,023 - INFO - Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-11-28 16:18:19,621 - INFO - Model loaded successfully.
+2025-11-28 16:18:47,040 - INFO - Received JD text for extraction
+2025-11-28 16:18:47,040 - INFO - Input JD: Job Title: UI Developer – EDS Web Component Development Job Summary: We are seeking a highly skilled and detail-oriented UI Developer to join our team in building and maintaining reusable, accessible, and secure web components for our Ethos Design System (EDS). This role involves working with modern web technologies, ensuring performance, internationalization, and integration across multiple frameworks. The ideal candidate will also be proficient in prototyping with StackBlitz and maintaining co
+2025-11-28 16:19:29,157 - INFO - Raw LLM Output: {
+ "primary": ["Lit", "HTML", "CSS/SCSS", "TypeScript", "viTest", "Playwright"],
+ "secondary": ["GitHub Copilot", "Figma", "Angular", "React", "Vue", "Sonar", "StackBlitz"],
+ "other": ["cybersecurity principles", "performance optimization techniques"]
+}
+2025-11-28 16:19:29,158 - INFO - Parsed Skills: {'primarySkills': ['Lit', 'HTML', 'CSS/SCSS', 'TypeScript', 'viTest', 'Playwright'], 'secondarySkills': ['GitHub Copilot', 'Figma', 'Angular', 'React', 'Vue', 'Sonar', 'StackBlitz'], 'otherSkills': ['cybersecurity principles', 'performance optimization techniques']}
+2025-11-28 16:25:31,914 - INFO - Received JD text for extraction
+2025-11-28 16:25:31,915 - INFO - Input JD: Senior C++ Developer Are you a seasoned C++ developer looking to take on exciting challenges and work on impactful projects? We’re looking for a Senior C++ Developer to join our team! 🔹 Role: Senior C++ Developer 🔹 Location: [Bangalore] 🔹 Experience: 5+ years in C++ development 🔹 Skills: Strong expertise in C++, STL, multithreading, performance optimization, and system-level programming. Experience with [mention any specific domain, e.g., embedded systems, finance, gaming] is a plus. In this rol
+2025-11-28 16:26:02,582 - INFO - Raw LLM Output: ```json
+{
+ "primary": ["C++", "STL", "multithreading", "performance optimization", "system-level programming"],
+ "secondary": ["MFC", "QT", "C#", ".NET Framework 4.5", "WPF", "WCF", "SQL"],
+ "other": ["database technologies", "dotTrace", "NProfiler", "Jenkins", "TeamCity"]
+}
+```
+2025-11-28 16:26:02,584 - ERROR - JSON Parsing Error: Expecting value: line 1 column 1 (char 0)
+2025-12-01 11:38:19,782 - INFO - 🚀 Starting JD Skill Extractor backend
+2025-12-01 11:38:19,783 - INFO - Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-12-01 11:38:22,613 - INFO - Model loaded successfully.
+2025-12-01 11:42:41,333 - INFO - Received JD text for extraction
+2025-12-01 11:42:41,334 - INFO - Input JD: Senior C++ Developer Are you a seasoned C++ developer looking to take on exciting challenges and work on impactful projects? We’re looking for a Senior C++ Developer to join our team! 🔹 Role: Senior C++ Developer 🔹 Location: [Bangalore] 🔹 Experience: 5+ years in C++ development 🔹 Skills: Strong expertise in C++, STL, multithreading, performance optimization, and system-level programming. Experience with [mention any specific domain, e.g., embedded systems, finance, gaming] is a plus. In this rol
+2025-12-01 11:43:19,353 - INFO - Raw LLM Output: {
+ "primary": ["C++", "STL", "Multithreading", "Performance optimization", "System-level programming"],
+ "secondary": ["MFC", "QT", "C#", ".NET Framework 4.5", "WPF", "WCF"],
+ "other": ["SQL", "Profiling tools (dotTrace, NProfiler)", "CI/CD tools (Jenkins, TeamCity)"]
+}
+2025-12-01 11:43:19,354 - INFO - Parsed Skills: {'primarySkills': ['C++', 'STL', 'Multithreading', 'Performance optimization', 'System-level programming'], 'secondarySkills': ['MFC', 'QT', 'C#', '.NET Framework 4.5', 'WPF', 'WCF'], 'otherSkills': ['SQL', 'Profiling tools (dotTrace, NProfiler)', 'CI/CD tools (Jenkins, TeamCity)']}
+2025-12-01 11:43:36,651 - INFO - Received JD text for extraction
+2025-12-01 11:43:36,652 - INFO - Input JD: Job Title: UI Developer – EDS Web Component Development Job Summary: We are seeking a highly skilled and detail-oriented UI Developer to join our team in building and maintaining reusable, accessible, and secure web components for our Ethos Design System (EDS). This role involves working with modern web technologies, ensuring performance, internationalization, and integration across multiple frameworks. The ideal candidate will also be proficient in prototyping with StackBlitz and maintaining co
+2025-12-01 11:44:14,753 - INFO - Raw LLM Output: {
+ "primary": ["Lit", "HTML", "CSS/SCSS", "TypeScript", "viTest", "Playwright", "Angular", "React", "Vue"],
+ "secondary": ["GitHub Copilot", "Figma", "Sonar"],
+ "other": ["axe-core", "Lighthouse", "Git", "agile methodologies", "cybersecurity principles", "CI/CD pipelines"]
+}
+2025-12-01 11:44:14,754 - INFO - Parsed Skills: {'primarySkills': ['Lit', 'HTML', 'CSS/SCSS', 'TypeScript', 'viTest', 'Playwright', 'Angular', 'React', 'Vue'], 'secondarySkills': ['GitHub Copilot', 'Figma', 'Sonar'], 'otherSkills': ['axe-core', 'Lighthouse', 'Git', 'agile methodologies', 'cybersecurity principles', 'CI/CD pipelines']}
+2025-12-02 15:16:36,209 - INFO - 🚀 Starting JD Skill Extractor backend
+2025-12-02 15:16:36,209 - INFO - Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-12-02 15:16:39,001 - INFO - Model loaded successfully.
+2025-12-02 15:25:44,960 - INFO - 🚀 Starting JD Skill Extractor backend
+2025-12-02 15:25:44,960 - INFO - Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-12-02 15:25:47,841 - INFO - Model loaded successfully.
+2025-12-03 08:38:58,319 - INFO - 🚀 Starting JD Skill Extractor backend
+2025-12-03 08:38:58,319 - INFO - Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-12-03 08:39:01,225 - INFO - Model loaded successfully.
+2025-12-03 08:39:23,007 - INFO - Received JD text for extraction
+2025-12-03 08:39:23,007 - INFO - Input JD: Primary Skills: HTML, CSS/SCSS, TypeScript, Angular/React/Vue, Accessibility (WCAG 2.1+), i18n/RTL Support, Playwright/Vitest/Sonar (Code Quality) Secondary Skills: Lit/Web Components, GitHub Copilot, StackBlitz, axe-core, Lighthouse, Responsive Design, Cross-Browser Compatibility, Unit Testing, E2E Testing, Design System Integration, Secure Coding/Cybersecurity, CI/CD, Git, Agile, Figma Other Skills: Debugging, Problem Solving, Real-time Issue Troubleshooting, Prototyping & Demos, Code Reviews,
+2025-12-03 08:44:29,730 - INFO - 🚀 Starting JD Skill Extractor backend
+2025-12-03 08:44:29,730 - INFO - Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-12-03 08:44:31,668 - INFO - Model loaded successfully.
+2025-12-03 08:46:22,887 - INFO - Received JD text for extraction
+2025-12-03 08:46:22,888 - INFO - Input JD: Senior C++ Developer Are you a seasoned C++ developer looking to take on exciting challenges and work on impactful projects? We’re looking for a Senior C++ Developer to join our team! 🔹 Role: Senior C++ Developer 🔹 Location: [Bangalore] 🔹 Experience: 5+ years in C++ development 🔹 Skills: Strong expertise in C++, STL, multithreading, performance optimization, and system-level programming. Experience with [mention any specific domain, e.g., embedded systems, finance, gaming] is a plus. In this rol
+2025-12-03 08:51:20,869 - INFO - 🚀 Starting JD Skill Extractor backend
+2025-12-03 08:51:20,869 - INFO - Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-12-03 08:51:23,257 - INFO - Model loaded successfully.
+2025-12-03 08:51:23,257 - INFO - 🚀 Backend API Started
+2025-12-03 08:52:04,712 - INFO - 📥 /extract-jd-keywords called
+2025-12-03 08:52:04,712 - INFO - JD file received: GE_jd.txt
+2025-12-03 08:52:04,712 - INFO - JD file size: 3000 bytes
+2025-12-03 08:52:04,713 - INFO - JD decoded as UTF-8
+2025-12-03 08:52:04,713 - INFO - Calling extract_skills()
+2025-12-03 08:52:04,713 - INFO - Received JD text for extraction
+2025-12-03 08:52:04,713 - INFO - Input JD: Job Title: UI Developer – EDS Web Component Development Job Summary: We are seeking a highly skilled and detail-oriented UI Developer to join our team in building and maintaining reusable, accessible, and secure web components for our Ethos Design System (EDS). This role involves working with modern web technologies, ensuring performance, internationalization, and integration across multiple frameworks. The ideal candidate will also be proficient in prototyping with StackBlitz and maintaining co
+2025-12-03 08:54:29,529 - INFO - Raw LLM Output: {
+ "primary": ["Lit", "HTML", "CSS/SCSS", "TypeScript", "viTest", "Playwright"],
+ "secondary": ["GitHub Copilot", "Figma", "Angular", "React", "Vue", "Sonar", "StackBlitz"],
+ "other": ["cybersecurity principles", "performance optimization techniques"]
+}
+2025-12-03 08:54:29,530 - INFO - Parsed Skills: {'primarySkills': ['Lit', 'HTML', 'CSS/SCSS', 'TypeScript', 'viTest', 'Playwright'], 'secondarySkills': ['GitHub Copilot', 'Figma', 'Angular', 'React', 'Vue', 'Sonar', 'StackBlitz'], 'otherSkills': ['cybersecurity principles', 'performance optimization techniques']}
+2025-12-03 08:54:29,530 - INFO - Extracted JD Skills: {'primarySkills': ['Lit', 'HTML', 'CSS/SCSS', 'TypeScript', 'viTest', 'Playwright'], 'secondarySkills': ['GitHub Copilot', 'Figma', 'Angular', 'React', 'Vue', 'Sonar', 'StackBlitz'], 'otherSkills': ['cybersecurity principles', 'performance optimization techniques']}
+2025-12-03 08:56:04,834 - INFO - 📥 /extract-jd-keywords called
+2025-12-03 08:56:04,834 - INFO - JD file received: GE_jd.txt
+2025-12-03 08:56:04,835 - INFO - JD file size: 3000 bytes
+2025-12-03 08:56:04,835 - INFO - JD decoded as UTF-8
+2025-12-03 08:56:04,835 - INFO - Calling extract_skills()
+2025-12-03 08:56:04,835 - INFO - Received JD text for extraction
+2025-12-03 08:56:04,836 - INFO - Input JD: Job Title: UI Developer – EDS Web Component Development Job Summary: We are seeking a highly skilled and detail-oriented UI Developer to join our team in building and maintaining reusable, accessible, and secure web components for our Ethos Design System (EDS). This role involves working with modern web technologies, ensuring performance, internationalization, and integration across multiple frameworks. The ideal candidate will also be proficient in prototyping with StackBlitz and maintaining co
+2025-12-03 08:58:47,276 - INFO - 🚀 Starting JD Skill Extractor backend (React + Python App)
+2025-12-03 08:58:47,276 - DEBUG - Checking model file path...
+2025-12-03 08:58:47,276 - INFO - 📁 Model found. Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-12-03 08:58:49,885 - INFO - ✅ Model loaded successfully.
+2025-12-03 08:58:49,885 - INFO - 🚀 Backend API Started
+2025-12-03 08:59:27,165 - DEBUG - Calling on_part_begin with no data
+2025-12-03 08:59:27,166 - DEBUG - Calling on_header_field with data[42:61]
+2025-12-03 08:59:27,166 - DEBUG - Calling on_header_value with data[63:110]
+2025-12-03 08:59:27,166 - DEBUG - Calling on_header_end with no data
+2025-12-03 08:59:27,166 - DEBUG - Calling on_header_field with data[112:124]
+2025-12-03 08:59:27,166 - DEBUG - Calling on_header_value with data[126:136]
+2025-12-03 08:59:27,166 - DEBUG - Calling on_header_end with no data
+2025-12-03 08:59:27,166 - DEBUG - Calling on_headers_finished with no data
+2025-12-03 08:59:27,167 - DEBUG - Calling on_part_data with data[140:3140]
+2025-12-03 08:59:27,167 - DEBUG - Calling on_part_end with no data
+2025-12-03 08:59:27,167 - DEBUG - Calling on_end with no data
+2025-12-03 08:59:27,168 - INFO - 📥 /extract-jd-keywords called
+2025-12-03 08:59:27,168 - INFO - JD file received: GE_jd.txt
+2025-12-03 08:59:27,168 - INFO - JD file size: 3000 bytes
+2025-12-03 08:59:27,168 - INFO - JD decoded as UTF-8
+2025-12-03 08:59:27,168 - INFO - Calling extract_skills()
+2025-12-03 08:59:27,169 - INFO - 🌐 extract_skills() called
+2025-12-03 08:59:27,169 - INFO - 📥 extract_skills_ai() called
+2025-12-03 08:59:27,169 - DEBUG - Cleaning JD text...
+2025-12-03 08:59:27,169 - DEBUG - Cleaned JD text (first 300 chars): Job Title: UI Developer – EDS Web Component Development Job Summary: We are seeking a highly skilled and detail-oriented UI Developer to join our team in building and maintaining reusable, accessible, and secure web components for our Ethos Design System (EDS). This role involves working with modern
+2025-12-03 08:59:27,169 - INFO - JD received for extraction.
+2025-12-03 08:59:27,169 - DEBUG - Full JD input: Job Title: UI Developer – EDS Web Component Development Job Summary: We are seeking a highly skilled and detail-oriented UI Developer to join our team in building and maintaining reusable, accessible, and secure web components for our Ethos Design System (EDS). This role involves working with modern web technologies, ensuring performance, internationalization, and integration across multiple frameworks. The ideal candidate will also be proficient in prototyping with StackBlitz and maintaining code quality using Sonar. Key Responsibilities: • Design, develop, and maintain reusable web components using Lit, HTML, SCSS, CSS, and TypeScript. • Implement unit testing with vitest and end-to-end automation using Playwright. • Ensure cross-browser compatibility and responsive design across devices and platforms. • Translate Figma designs into functional, accessible components. • Integrate EDS components into Angular, React, Vue, and TypeScript applications. • Debug and resolve issues in real-time across products using EDS components. • Use GitHub Copilot to enhance development productivity. • Ensure accessibility (WCAG 2.1+) compliance, including keyboard navigation and screen reader support. • Implement internationalization (i18n), multi-lingual support, and Right-to-Left (RTL) layout handling. • Optimize components for performance, including efficient rendering and bundle size reduction. • Apply cybersecurity best practices in UI development, including secure coding and input validation. • Use Sonar to monitor and maintain code quality, security, and technical debt. • Prototype and demonstrate component usage and integration scenarios using StackBlitz. • Participate in agile ceremonies, code reviews, and contribute to design system documentation and governance. Required Skills & Qualifications: • Strong proficiency in Lit, HTML, CSS/SCSS, and TypeScript. • Experience with viTest, Playwright, and modern testing strategies. • Familiarity with GitHub Copilot and AI-assisted development workflows. • Experience with Figma and translating designs into code. • Proven ability to integrate components into Angular, React, Vue, and other frameworks. • Solid understanding of accessibility standards (WCAG) and tools like axe-core or Lighthouse. • Experience with i18n, multi-lingual, and RTL support. • Knowledge of performance optimization techniques. • Awareness of cybersecurity principles in frontend development. • Experience using Sonar for code quality and security analysis. • Proficiency in StackBlitz for rapid prototyping and demos. • Strong debugging and problem-solving skills. Preferred Qualifications: • Experience contributing to or maintaining a design system. • Familiarity with CI/CD pipelines, Git, and agile methodologies. • Knowledge of web component standards and custom elements. • Experience with accessibility audits and automated testing tools.
+2025-12-03 08:59:27,170 - DEBUG - 🧠 Sending prompt to LLM...
+2025-12-03 08:59:27,170 - DEBUG - Prompt (first 500 chars): 
+You are an AI assistant that extracts skills from a Job Description.
+Return skills in three categories EXACTLY like this:
+
+{
+ "primary": ["skill1", "skill2"],
+ "secondary": ["skill1", "skill2"],
+ "other": ["skill1", "skill2"]
+}
+
+Rules:
+- Only technical skills (tools, languages, frameworks)
+- Do not add soft skills
+- No extra text, only JSON
+- Do not invent any skills.
+
+Job Description:
+Job Title: UI Developer – EDS Web Component Development Job Summary: We are seeking a highly skilled and detai
+2025-12-03 09:02:19,164 - INFO - LLM response received successfully.
+2025-12-03 09:02:19,166 - DEBUG - Token Usage: {'prompt_tokens': 742, 'completion_tokens': 85, 'total_tokens': 827}
+2025-12-03 09:02:19,166 - DEBUG - Raw LLM Output (first 400 chars): {
+ "primary": ["Lit", "HTML", "CSS/SCSS", "TypeScript", "viTest", "Playwright"],
+ "secondary": ["GitHub Copilot", "Figma", "Angular", "React", "Vue", "Sonar", "StackBlitz"],
+ "other": ["cybersecurity principles", "performance optimization techniques"]
+}
+2025-12-03 09:02:19,166 - INFO - Raw LLM Output: {
+ "primary": ["Lit", "HTML", "CSS/SCSS", "TypeScript", "viTest", "Playwright"],
+ "secondary": ["GitHub Copilot", "Figma", "Angular", "React", "Vue", "Sonar", "StackBlitz"],
+ "other": ["cybersecurity principles", "performance optimization techniques"]
+}
+2025-12-03 09:02:19,166 - DEBUG - Parsing JSON output from LLM...
+2025-12-03 09:02:19,166 - INFO - 🎉 JSON parsed successfully.
+2025-12-03 09:02:19,166 - DEBUG - Parsed skills: {'primarySkills': ['Lit', 'HTML', 'CSS/SCSS', 'TypeScript', 'viTest', 'Playwright'], 'secondarySkills': ['GitHub Copilot', 'Figma', 'Angular', 'React', 'Vue', 'Sonar', 'StackBlitz'], 'otherSkills': ['cybersecurity principles', 'performance optimization techniques']}
+2025-12-03 09:02:19,166 - INFO - Extracted JD Skills: {'primarySkills': ['Lit', 'HTML', 'CSS/SCSS', 'TypeScript', 'viTest', 'Playwright'], 'secondarySkills': ['GitHub Copilot', 'Figma', 'Angular', 'React', 'Vue', 'Sonar', 'StackBlitz'], 'otherSkills': ['cybersecurity principles', 'performance optimization techniques']}
+2025-12-03 09:02:30,671 - INFO - 🚀 Starting JD Skill Extractor backend (React + Python App)
+2025-12-03 09:02:30,671 - DEBUG - Checking model file path...
+2025-12-03 09:02:30,671 - INFO - 📁 Model found. Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-12-03 09:02:33,051 - INFO - ✅ Model loaded successfully.
+2025-12-03 09:02:33,051 - INFO - 🚀 Backend API Started
+2025-12-03 09:02:43,894 - INFO - 🚀 Starting JD Skill Extractor backend (React + Python App)
+2025-12-03 09:02:43,895 - DEBUG - Checking model file path...
+2025-12-03 09:02:43,895 - INFO - 📁 Model found. Loading GGUF model from: ./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+2025-12-03 09:02:46,524 - INFO - ✅ Model loaded successfully.
+2025-12-03 09:02:46,524 - INFO - 🚀 Backend API Started

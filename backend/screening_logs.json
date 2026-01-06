@@ -1,0 +1,244 @@
+[
+  {
+    "GeneratedOn": "2025-12-29T05:27:41.342929",
+    "Client": "Rolls Royce ",
+    "Role": "",
+    "KeySkill": [
+      "Microsoft Azure",
+      [
+        "Angular",
+        "React"
+      ],
+      "Azure Entra",
+      "Kubernetes",
+      "Azure DevOps",
+      [
+        "CI",
+        "CD"
+      ]
+    ],
+    "TotalProfiles": 5,
+    "Selected Profiles": [
+      "MNagarjuna.pdf",
+      "MrunalReddyGaddam.pdf",
+      "PINKILAKSHAKAR.pdf"
+    ],
+    "Rejected Profiles": [
+      "PEDDIREDDYHARIVARDHANREDDY.pdf",
+      "NeelaMaheshBabu.docx"
+    ],
+    "Count": 3,
+    "RejectedCount": 2,
+    "Selected": true
+  },
+  {
+    "GeneratedOn": "2025-12-30T05:48:13.173714",
+    "Client": "Rolls Royce ",
+    "Role": "Software engineer",
+    "KeySkill": [
+      ".NET Core",
+      "C#",
+      "Web API",
+      "Angular"
+    ],
+    "TotalProfiles": 6,
+    "Selected Profiles": [
+      "AdeshMishra.pdf",
+      "AshishKumar.pdf",
+      "DastgirShaikh.docx",
+      "GajendiranGnanam.pdf",
+      "SumitDixit.pdf",
+      "VyshnavC.pdf"
+    ],
+    "Rejected Profiles": [],
+    "Count": 6,
+    "RejectedCount": 0,
+    "Selected": true
+  },
+  {
+    "GeneratedOn": "2026-01-05T12:00:23.800994",
+    "Client": "RR",
+    "Role": "FS",
+    "KeySkill": [
+      ".NET Core",
+      "C#",
+      "Web API",
+      "Angular"
+    ],
+    "TotalProfiles": 1,
+    "Selected Profiles": [
+      "AnilRajak.docx"
+    ],
+    "Rejected Profiles": [],
+    "Count": 1,
+    "RejectedCount": 0,
+    "Selected": true
+  },
+  {
+    "GeneratedOn": "2026-01-05T12:04:28.500382",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [
+      [
+        "Python",
+        "Angular"
+      ],
+      [
+        "JavaScript",
+        "Typescript"
+      ],
+      "HTML",
+      "CSS",
+      "Node.js",
+      [
+        "Java",
+        "Spring",
+        "Django"
+      ]
+    ],
+    "TotalProfiles": 3,
+    "Selected Profiles": [
+      "Sathish Kumar C_ Embedded System Engineer_ MNR Solutions.pdf"
+    ],
+    "Rejected Profiles": [
+      "YuvarajMohan_Embedded Systems Engineer_MNR Solutions.pdf",
+      "Lingeshwaran_ Embedded Systems Engineer_MNR Solutions.pdf"
+    ],
+    "Count": 1,
+    "RejectedCount": 2,
+    "Selected": true
+  },
+  {
+    "GeneratedOn": "2026-01-05T12:08:30.620735",
+    "Client": "Ford",
+    "Role": "Software Engineer",
+    "KeySkill": [
+      [
+        "Python",
+        "Angular"
+      ],
+      [
+        "JavaScript",
+        "Typescript"
+      ],
+      "HTML",
+      "CSS",
+      "Node.js",
+      [
+        "Java",
+        "Spring",
+        "Django"
+      ]
+    ],
+    "TotalProfiles": 3,
+    "Selected Profiles": [
+      "Sathish Kumar C_ Embedded System Engineer_ MNR Solutions.pdf"
+    ],
+    "Rejected Profiles": [
+      "YuvarajMohan_Embedded Systems Engineer_MNR Solutions.pdf",
+      "Lingeshwaran_ Embedded Systems Engineer_MNR Solutions.pdf"
+    ],
+    "Count": 1,
+    "RejectedCount": 2,
+    "Selected": true
+  },
+  {
+    "GeneratedOn": "2026-01-05T12:12:25.571386",
+    "Client": "Ford",
+    "Role": "Software Engineer",
+    "KeySkill": [
+      [
+        "Python",
+        "Angular"
+      ],
+      [
+        "JavaScript",
+        "Typescript"
+      ],
+      "HTML",
+      "CSS",
+      "Node.js",
+      [
+        "Java",
+        "Spring",
+        "Django"
+      ]
+    ],
+    "TotalProfiles": 3,
+    "Selected Profiles": [
+      "Sathish Kumar C_ Embedded System Engineer_ MNR Solutions.pdf"
+    ],
+    "Rejected Profiles": [
+      "YuvarajMohan_Embedded Systems Engineer_MNR Solutions.pdf",
+      "Lingeshwaran_ Embedded Systems Engineer_MNR Solutions.pdf"
+    ],
+    "Count": 1,
+    "RejectedCount": 2,
+    "Selected": true
+  },
+  {
+    "GeneratedOn": "2026-01-05T12:13:49.339050",
+    "Client": "Ford",
+    "Role": "Software Engineer",
+    "KeySkill": [
+      [
+        "Python",
+        "Angular"
+      ],
+      [
+        "JavaScript",
+        "Typescript"
+      ],
+      "HTML",
+      "CSS",
+      "Node.js",
+      [
+        "Java",
+        "Spring",
+        "Django"
+      ]
+    ],
+    "TotalProfiles": 3,
+    "Selected Profiles": [
+      "Sathish Kumar C_ Embedded System Engineer_ MNR Solutions.pdf"
+    ],
+    "Rejected Profiles": [
+      "YuvarajMohan_Embedded Systems Engineer_MNR Solutions.pdf",
+      "Lingeshwaran_ Embedded Systems Engineer_MNR Solutions.pdf"
+    ],
+    "Count": 1,
+    "RejectedCount": 2,
+    "Selected": true
+  },
+  {
+    "GeneratedOn": "2026-01-06T04:08:26.480471",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [
+      [
+        "Python",
+        "Angular"
+      ],
+      [
+        "JavaScript",
+        "Typescript"
+      ],
+      "HTML",
+      "CSS",
+      "Node.js",
+      [
+        "Java",
+        "Spring",
+        "Django"
+      ]
+    ],
+    "TotalProfiles": 1,
+    "Selected Profiles": [],
+    "Rejected Profiles": [
+      "Lingeshwaran_ Embedded Systems Engineer_MNR Solutions.pdf"
+    ],
+    "Count": 0,
+    "RejectedCount": 1,
+    "Selected": false
+  }
+]

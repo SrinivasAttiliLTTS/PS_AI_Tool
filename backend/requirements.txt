@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pandas
+openpyxl
+pymupdf
+python-docx
+sentence-transformers
+torch
+transformers
+scipy
+docx2txt
+gunicorn
