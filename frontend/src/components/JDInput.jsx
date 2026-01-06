@@ -143,9 +143,9 @@ const [role, setRole] = useState("");
       if (buildCombinedJDText()) formData.append("jd_text", buildCombinedJDText());
       
       const response = await 
-      fetch("http://localhost:10000/extract-jd-keywords",
+      // fetch("http://localhost:10000/extract-jd-keywords",
 
-      // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
+      fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
          {
         method: "POST",
         body: formData,
