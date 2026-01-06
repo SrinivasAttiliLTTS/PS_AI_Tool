@@ -261,6 +261,7 @@
 #     logger.info("Returning Excel file")
 #     return StreamingResponse(output, media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", headers=headers)
 
+
 # backend/app.py
 import os
 import shutil
@@ -272,50 +273,59 @@ from fastapi.responses import StreamingResponse, JSONResponse
 from typing import List
 import io
 import pandas as pd
+from screening_logger import save_screening_log   # NEW
+from logs_store import save_log, load_logs
 import json
 
-# Centralized logging
-logging.basicConfig(
-    filename="backend.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+# Import centralized logging
+from logging_config import setup_logging
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app:app", host="0.0.0.0", port=port, reload=True)
+
+# Initialize logging
+setup_logging()
 logger = logging.getLogger(__name__)
 logger.info("🚀 Backend API Started")
 
-# Import your modules (ensure these exist in your project)
-from ai_resume_screen import parse_jd, extract_text, analyze_resume
-from jd_skill_extractor import extract_skills
-from screening_logger import save_screening_log
+from ai_resume_screen import extract_text, analyze_resume
+from jd_skill_extractor import parse_jd, extract_skills  # LLM already removed
 
 app = FastAPI(title="Resume Screening API")
 
-# ===============================
-# CORS - Update with your frontend URL
-# ===============================
+# ======================================================
+# CORS
+# ======================================================
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://<your-frontend>.onrender.com",
-        "http://localhost:3000"
+        "http://localhost:3000",
+        "https://ps-ai-tool-mk0p.onrender.com",
+        "https://*.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# ======================================================
+# ROOT / PING
+# ======================================================
 @app.get("/")
 def root():
     logger.info("ROOT endpoint hit")
     return {"status": "ok"}
 
 @app.get("/ping")
-def ping():
+async def ping():
+    logger.info("PING received")
     return {"status": "ok"}
 
-# ===============================
-# Upload JD
-# ===============================
+# ======================================================
+# UPLOAD JD
+# ======================================================
 @app.post("/upload-jd")
 async def upload_jd(jd_file: UploadFile = File(None), jd_text: str = Form(None)):
     logger.info("📥 /upload-jd called")
@@ -323,12 +333,16 @@ async def upload_jd(jd_file: UploadFile = File(None), jd_text: str = Form(None))
 
     if jd_file:
         contents = await jd_file.read()
-        tmp = tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(jd_file.filename)[1])
-        tmp.write(contents)
-        tmp.flush()
-        tmp.close()
-        text = extract_text(tmp.name)
-        os.unlink(tmp.name)
+        try:
+            text = contents.decode("utf-8", errors="ignore")
+        except:
+            tmp = tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(jd_file.filename)[1])
+            tmp.write(contents)
+            tmp.flush()
+            tmp.close()
+            from jd_skill_extractor import extract_text
+            text = extract_text(tmp.name)
+            os.unlink(tmp.name)
     elif jd_text:
         text = jd_text
     else:
@@ -337,9 +351,9 @@ async def upload_jd(jd_file: UploadFile = File(None), jd_text: str = Form(None))
     parsed = parse_jd(text)
     return JSONResponse(parsed)
 
-# ===============================
-# Extract JD keywords
-# ===============================
+# ======================================================
+# EXTRACT JD KEYWORDS
+# ======================================================
 @app.post("/extract-jd-keywords")
 async def extract_jd_keywords(jd_file: UploadFile = File(None), jd_text: str = Form(None)):
     logger.info("📥 /extract-jd-keywords called")
@@ -347,12 +361,16 @@ async def extract_jd_keywords(jd_file: UploadFile = File(None), jd_text: str = F
 
     if jd_file:
         contents = await jd_file.read()
-        tmp = tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(jd_file.filename)[1])
-        tmp.write(contents)
-        tmp.flush()
-        tmp.close()
-        text = extract_text(tmp.name)
-        os.unlink(tmp.name)
+        try:
+            text = contents.decode("utf-8", errors="ignore")
+        except:
+            tmp = tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(jd_file.filename)[1])
+            tmp.write(contents)
+            tmp.flush()
+            tmp.close()
+            from jd_skill_extractor import extract_text
+            text = extract_text(tmp.name)
+            os.unlink(tmp.name)
     elif jd_text:
         text = jd_text
     else:
@@ -361,20 +379,14 @@ async def extract_jd_keywords(jd_file: UploadFile = File(None), jd_text: str = F
     parsed = extract_skills(text)
     return JSONResponse(parsed)
 
-# ===============================
-# Analyze Resumes (max 2 per request)
-# ===============================
+# ======================================================
+# ANALYZE RESUMES
+# ======================================================
 @app.post("/analyze-resumes")
-async def analyze_resumes(
-    jd_text: str = Form(...),
-    resumes: List[UploadFile] = File(...),
-    client: str = Form(""),
-    role: str = Form("")
-):
-    if len(resumes) > 2:
-        raise HTTPException(status_code=400, detail="Too many resumes. Max 2 per request.")
-
+async def analyze_resumes(jd_text: str = Form(...), resumes: List[UploadFile] = File(...), client: str = Form(""), role: str = Form("")):
+    logger.info("📥 /analyze-resumes called")
     jd_skills = parse_jd(jd_text)
+
     results = []
     workdir = tempfile.mkdtemp(prefix="resumes_")
 
@@ -393,10 +405,11 @@ async def analyze_resumes(
     finally:
         shutil.rmtree(workdir, ignore_errors=True)
 
-    # Save screening log
+    # SCREENING LOG
     try:
         key_skills = jd_skills.get("primarySkills") or jd_skills.get("primary", [])
         all_profiles = [r["Name"] for r in results]
+        total_profiles = len(all_profiles)
         selected_profiles = [r["Name"] for r in results if r.get("Status") == "Selected"]
         rejected_profiles = list(set(all_profiles) - set(selected_profiles))
 
@@ -404,47 +417,35 @@ async def analyze_resumes(
             client=client,
             role=role,
             key_skills=key_skills,
-            total_profiles=len(all_profiles),
+            total_profiles=total_profiles,
             selected_profiles=selected_profiles,
             rejected_profiles=rejected_profiles
         )
-    except Exception as e:
-        logger.error("❌ Screening log failed")
-        logger.exception(e)
+    except Exception as log_error:
+        logger.error("❌ Screening logging failed")
+        logger.exception(log_error)
 
     return {"results": results}
 
-# ===============================
-# Screening Logs (Read)
-# ===============================
+# ======================================================
+# SCREENING LOGS READ
+# ======================================================
 @app.get("/logs/screening")
-def get_screening_logs():
-    try:
-        if not os.path.exists("screening_logs.json"):
-            return []
-        with open("screening_logs.json", "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        logger.error("❌ Failed to read screening logs")
-        logger.exception(e)
+async def get_screening_logs():
+    if not os.path.exists("screening_logs.json"):
         return []
+    with open("screening_logs.json", "r", encoding="utf-8") as f:
+        return json.load(f)
 
-# ===============================
-# Export CSV (lightweight for Render)
-# ===============================
+# ======================================================
+# EXPORT EXCEL
+# ======================================================
 @app.post("/export-excel")
-def export_excel(results: List[dict]):
+async def export_excel(results: List[dict]):
     df = pd.DataFrame(results)
-    output = io.StringIO()
-    df.to_csv(output, index=False)
+    output = io.BytesIO()
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
+        df.to_excel(writer, index=False)
     output.seek(0)
-    headers = {'Content-Disposition': 'attachment; filename="results.csv"'}
-    return StreamingResponse(output, media_type="text/csv", headers=headers)
-
-# ===============================
-# Run on Render
-# ===============================
-if __name__ == "__main__":
-    import uvicorn
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("app:app", host="0.0.0.0", port=port)
+    headers = {'Content-Disposition': 'attachment; filename="results.xlsx"'}
+    return StreamingResponse(output, media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", headers=headers)
