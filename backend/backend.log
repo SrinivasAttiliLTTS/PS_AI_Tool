@@ -5933,3 +5933,76 @@ NameError: name 'MODEL_PATH' is not defined
 2026-01-06 09:38:47,740 - DEBUG - root - ✅ Extracted from formatted JD: {'primarySkills': ['Java', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'GitHub', 'GCP', 'Terraform', 'GitHub Actions'], 'secondarySkills': ['HTML', 'CSS', 'JavaScript', 'Angular', 'PrimeNG'], 'otherSkills': ['Logical thinking', 'problem-solving', 'independent coding', 'good communication']}
 2026-01-06 09:38:47,740 - INFO - root - 🌟 JD parsed using formatted JD logic
 2026-01-06 09:38:47,740 - INFO - app - Extracted JD Skills: {'client': 'Ford', 'role': 'Full Stack Senior developer', 'profilesReceivedFrom': 'Akshata Anand Shet', 'primarySkills': ['Java', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'GitHub', 'GCP', 'Terraform', 'GitHub Actions'], 'secondarySkills': ['HTML', 'CSS', 'JavaScript', 'Angular', 'PrimeNG'], 'otherSkills': ['Logical thinking', 'problem-solving', 'independent coding', 'good communication']}
+2026-01-06 15:20:18,607 - INFO - app - 🚀 Backend API Started
+2026-01-06 15:23:23,819 - INFO - app - 🚀 Backend API Started
+2026-01-06 15:24:00,070 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: mps
+2026-01-06 15:24:00,070 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-06 15:24:00,239 - DEBUG - urllib3.connectionpool - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-06 15:24:00,954 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-06 15:24:01,108 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-06 15:24:01,350 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-06 15:24:01,502 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-06 15:24:01,740 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-06 15:24:01,893 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-06 15:24:02,133 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-06 15:24:02,286 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-06 15:24:02,536 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-06 15:24:02,689 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-06 15:24:02,926 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-06 15:24:03,079 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-06 15:24:03,323 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-06 15:24:03,554 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-06 15:24:03,705 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-06 15:24:04,096 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-06 15:24:04,251 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-06 15:24:04,525 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-06 15:24:04,778 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=True&expand=False HTTP/1.1" 200 6465
+2026-01-06 15:24:05,051 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-06 15:24:05,203 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-06 15:24:05,457 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6860
+2026-01-06 15:24:05,663 - INFO - root - ======================================================
+2026-01-06 15:24:05,663 - INFO - root - 🚀 Starting JD Skill Extractor Backend
+2026-01-06 15:24:05,663 - INFO - root - ======================================================
+2026-01-06 15:24:05,663 - DEBUG - root - 🔍 Checking model file path...
+2026-01-06 15:24:33,906 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 15:24:33,906 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-06 15:24:33,907 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:88]
+2026-01-06 15:24:33,907 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 15:24:33,907 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 15:24:33,907 - DEBUG - python_multipart.multipart - Calling on_part_data with data[92:355]
+2026-01-06 15:24:33,907 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 15:24:33,907 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 15:24:33,907 - DEBUG - python_multipart.multipart - Calling on_header_field with data[399:418]
+2026-01-06 15:24:33,907 - DEBUG - python_multipart.multipart - Calling on_header_value with data[420:499]
+2026-01-06 15:24:33,907 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 15:24:33,908 - DEBUG - python_multipart.multipart - Calling on_header_field with data[501:513]
+2026-01-06 15:24:33,908 - DEBUG - python_multipart.multipart - Calling on_header_value with data[515:530]
+2026-01-06 15:24:33,908 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 15:24:33,908 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 15:24:33,908 - DEBUG - python_multipart.multipart - Calling on_part_data with data[534:60847]
+2026-01-06 15:24:33,908 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 15:24:33,908 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 15:24:33,908 - DEBUG - python_multipart.multipart - Calling on_header_field with data[60891:60910]
+2026-01-06 15:24:33,908 - DEBUG - python_multipart.multipart - Calling on_header_value with data[60912:60936]
+2026-01-06 15:24:33,909 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 15:24:33,909 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 15:24:33,909 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 15:24:33,909 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-06 15:24:33,909 - DEBUG - python_multipart.multipart - Calling on_header_field with data[60984:61003]
+2026-01-06 15:24:33,909 - DEBUG - python_multipart.multipart - Calling on_header_value with data[61005:61027]
+2026-01-06 15:24:33,909 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-06 15:24:33,909 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-06 15:24:33,909 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-06 15:24:33,910 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-06 15:24:33,911 - INFO - app - 📥 /analyze-resumes called
+2026-01-06 15:24:33,911 - INFO - app - JD Text length: 263 chars
+2026-01-06 15:24:33,911 - INFO - app - Total resumes received: 1
+2026-01-06 15:24:33,912 - INFO - app - JD Skills Parsed: {'primary': [['Python', 'Angular'], ['JavaScript', 'Typescript'], 'HTML', 'CSS', 'Node.js', ['Java', 'Spring', 'Django']], 'secondary': ['GCP', 'Kubernetes', 'Unit Testing'], 'other': ['Performance optimization', 'Code reviews', 'Unit testing', 'SDLC participation', 'Collaboration with product teams', 'Testing Frameworks']}
+2026-01-06 15:24:33,913 - INFO - app - Temp resume directory: /var/folders/xj/kvb1xq9n1_sdg8m5_qrcd2th0000gr/T/resumes_ff7uc0oo
+2026-01-06 15:24:33,913 - INFO - app - Processing resume: AbdulBashith_Full stack developer_MNR.pdf
+2026-01-06 15:24:33,913 - INFO - app - Resume size: 60313 bytes
+2026-01-06 15:24:33,956 - INFO - app - Extracted resume text length: 2603 chars
+2026-01-06 15:24:45,635 - INFO - app - Resume analysis output: {'Strengths': 'Python/Angular, JavaScript/Typescript, Node.js, Performance optimization', 'Missing Primary': 'HTML, CSS, Java/Spring/Django', 'Missing Secondary': 'GCP, Kubernetes, Unit Testing', 'Primary Score': 50.0, 'Secondary Score': 0.0, 'Overall Score': 40.0, 'Years of Experience': 11, 'Status': 'Not Selected'}
+2026-01-06 15:24:45,635 - INFO - app - Cleaning temp directory
+2026-01-06 15:24:45,636 - INFO - app - Returning analysis result
+2026-01-06 15:24:45,638 - INFO - screening_logger - 📊 Screening log saved successfully

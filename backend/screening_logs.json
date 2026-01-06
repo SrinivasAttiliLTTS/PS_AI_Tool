@@ -240,5 +240,36 @@
     "Count": 0,
     "RejectedCount": 1,
     "Selected": false
+  },
+  {
+    "GeneratedOn": "2026-01-06T09:54:45.636620",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [
+      [
+        "Python",
+        "Angular"
+      ],
+      [
+        "JavaScript",
+        "Typescript"
+      ],
+      "HTML",
+      "CSS",
+      "Node.js",
+      [
+        "Java",
+        "Spring",
+        "Django"
+      ]
+    ],
+    "TotalProfiles": 1,
+    "Selected Profiles": [],
+    "Rejected Profiles": [
+      "AbdulBashith_Full stack developer_MNR.pdf"
+    ],
+    "Count": 0,
+    "RejectedCount": 1,
+    "Selected": false
   }
 ]
