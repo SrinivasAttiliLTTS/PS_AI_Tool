@@ -641,7 +641,12 @@ import re
 import json
 import logging
 import traceback
-from llama_cpp import Llama
+try:
+    from llama_cpp import Llama
+    LLAMA_AVAILABLE = True
+except ImportError:
+    Llama = None
+    LLAMA_AVAILABLE = False
 
 # ======================================================
 # Logging Setup
@@ -757,6 +762,13 @@ def extract_json_from_text(text: str):
 # Extract Skills Using LLM
 # ======================================================
 def extract_skills_from_llm(jd_text: str):
+    # if not LLAMA_AVAILABLE:
+    #     logging.warning("⚠️ LLM not available. Skipping LLM extraction.")
+    #     return {
+    #         "primarySkills": [],
+    #         "secondarySkills": [],
+    #         "otherSkills": []
+    #     }
     cleaned = clean_text(jd_text)
     prompt = EXTRACTION_PROMPT + cleaned + "\n\nReturn only JSON.\n"
 
