@@ -635,241 +635,310 @@
 #     print(result)
 #     logging.info("🧪 Manual test completed.")
 
-# backend/jd_skill_extractor
-import os
+
+
+
+
+# backend/jd_skill_extractor.py
 import re
 import json
 import logging
 import traceback
-try:
-    from llama_cpp import Llama
-    LLAMA_AVAILABLE = True
-except ImportError:
-    Llama = None
-    LLAMA_AVAILABLE = False
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # ======================================================
-# Logging Setup
-# ======================================================
-logging.basicConfig(
-    filename="skill_extractor.log",
-    level=logging.DEBUG,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
-
-logging.info("======================================================")
-logging.info("🚀 Starting JD Skill Extractor Backend")
-logging.info("======================================================")
-
-# ======================================================
-# Load Local GGUF Model
-# ======================================================
-# MODEL_PATH = "./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf"
-
-logging.debug("🔍 Checking model file path...")
-# if not os.path.exists(MODEL_PATH):
-#     logging.error(f"❌ Model not found at {MODEL_PATH}")
-# else:
-#     logging.info(f"📁 Model located. Loading from: {MODEL_PATH}")
-
-# try:
-#     llm = Llama(
-#         model_path=MODEL_PATH,
-#         n_ctx=4096,
-#         n_threads=8,
-#         temperature=0.2,
-#         stop=["</s>"]
-#     )
-#     logging.info("✅ GGUF Model loaded successfully.")
-# except Exception as e:
-#     logging.error("❌ Fatal: Model loading failed.")
-#     logging.error(traceback.format_exc())
-#     raise e
-
-# ======================================================
-# Clean Input
+# CLEAN TEXT
 # ======================================================
 def clean_text(text: str) -> str:
-    logging.debug("🧹 Cleaning JD text...")
-    text = re.sub(r"\s+", " ", text)
-    cleaned = text.strip()
-    logging.debug(f"👉 Cleaned JD snippet (300 chars): {cleaned[:300]}")
-    logging.debug(f"📝 JD total length: {len(cleaned)} chars")
-    return cleaned
+    return re.sub(r"\s+", " ", text).strip()
 
 # ======================================================
-# NEW FEATURE — Extract Client / Role / Profiles
+# METADATA
 # ======================================================
 def extract_metadata(jd_text: str):
-    logging.debug("🔍 Extracting Client, Role, Profiles Received From...")
+    def find(pattern):
+        m = re.search(pattern, jd_text)
+        return m.group(1).strip() if m else ""
 
-    client = re.search(r"Client:\s*(.*)", jd_text)
-    role = re.search(r"Role:\s*(.*)", jd_text)
-    profiles = re.search(r"Profiles\s*Received\s*From:\s*(.*)", jd_text)
-
-    metadata = {
-        "client": client.group(1).strip() if client else "",
-        "role": role.group(1).strip() if role else "",
-        "profilesReceivedFrom": profiles.group(1).strip() if profiles else ""
+    return {
+        "client": find(r"Client:\s*(.*)"),
+        "role": find(r"Role:\s*(.*)"),
+        "profilesReceivedFrom": find(r"Profiles\s*Received\s*From:\s*(.*)")
     }
 
-    logging.info(f"📌 Parsed Metadata: {metadata}")
-    return metadata
-
 # ======================================================
-# AI Prompt Template
-# ======================================================
-EXTRACTION_PROMPT = """
-You are an AI assistant that extracts skills from a Job Description.
-Return skills in three categories EXACTLY like this:
-
-{
- "primary": ["skill1", "skill2"],
- "secondary": ["skill1", "skill2"],
- "other": ["skill1", "skill2"]
-}
-
-Rules:
-- Only technical skills (tools, languages, frameworks)
-- Do not add soft skills
-- No extra text, only JSON
-- Do not invent any skills
-- Do NOT split combined skills. If the JD lists Angular/React/Vue, keep it as a single skill.
-
-Job Description:
-"""
-
-# ======================================================
-# Helper: Extract JSON from LLM output safely
-# ======================================================
-def extract_json_from_text(text: str):
-    logging.debug("🔍 Attempting to extract JSON from LLM output...")
-    try:
-        match = re.search(r"\{.*?\}", text, re.DOTALL)
-        if match:
-            cleaned_json = match.group(0)
-            return json.loads(cleaned_json)
-        else:
-            logging.error("❌ No JSON found in LLM output")
-            return {"primary": [], "secondary": [], "other": []}
-    except Exception:
-        logging.error("❌ JSON extraction failed")
-        logging.error(traceback.format_exc())
-        logging.error(f"LLM output:\n{text}")
-        return {"primary": [], "secondary": [], "other": []}
-
-# ======================================================
-# Extract Skills Using LLM
-# ======================================================
-def extract_skills_from_llm(jd_text: str):
-    # if not LLAMA_AVAILABLE:
-    #     logging.warning("⚠️ LLM not available. Skipping LLM extraction.")
-    #     return {
-    #         "primarySkills": [],
-    #         "secondarySkills": [],
-    #         "otherSkills": []
-    #     }
-    cleaned = clean_text(jd_text)
-    prompt = EXTRACTION_PROMPT + cleaned + "\n\nReturn only JSON.\n"
-
-    logging.info("⚡ Sending request to LLM...")
-    try:
-        response = llm(prompt, max_tokens=512, echo=False)
-        logging.info("🤖 LLM responded successfully.")
-    except Exception:
-        logging.error("❌ LLM execution failed!")
-        logging.error(traceback.format_exc())
-        return {"primarySkills": [], "secondarySkills": [], "otherSkills": []}
-
-    raw_output = response["choices"][0]["text"].strip()
-    logging.info("📨 Raw LLM Output received")
-    logging.debug(f"🧾 Raw output snippet (400 chars): {raw_output[:400]}")
-
-    skills_json = extract_json_from_text(raw_output)
-    result = {
-        "primarySkills": skills_json.get("primary", []),
-        "secondarySkills": skills_json.get("secondary", []),
-        "otherSkills": skills_json.get("other", [])
-    }
-    logging.info(f"🎯 Extracted JD Skills: {result}")
-    return result
-
-# ======================================================
-# Extract Skills From Formatted JD
+# FORMATTED JD PARSER
 # ======================================================
 def extract_skills_from_formatted_jd(jd_text: str):
-    logging.debug("🔍 Checking if JD is already in Primary/Secondary/Other format")
-    try:
-        primary = re.findall(r"Primary Skills:\s*(.*?)(?:Secondary Skills:|$)", jd_text, re.DOTALL)
-        secondary = re.findall(r"Secondary Skills:\s*(.*?)(?:Other Skills:|$)", jd_text, re.DOTALL)
-        other = re.findall(r"Other Skills:\s*(.*)", jd_text, re.DOTALL)
+    def block(label):
+        m = re.search(rf"{label}:\s*(.*?)(?:\n[A-Z]|$)", jd_text, re.DOTALL)
+        return [s.strip() for s in m.group(1).split(",")] if m else []
 
-        def clean_list(skills_list):
-            if not skills_list:
-                return []
-            return [s.strip() for s in skills_list[0].split(",") if s.strip()]
-
-        result = {
-            "primarySkills": clean_list(primary),
-            "secondarySkills": clean_list(secondary),
-            "otherSkills": clean_list(other)
-        }
-        logging.debug(f"✅ Extracted from formatted JD: {result}")
-        return result
-    except Exception:
-        logging.error("❌ Failed to extract from formatted JD")
-        logging.error(traceback.format_exc())
-        return {"primarySkills": [], "secondarySkills": [], "otherSkills": []}
+    return {
+        "primarySkills": block("Primary Skills"),
+        "secondarySkills": block("Secondary Skills"),
+        "otherSkills": block("Other Skills"),
+    }
 
 # ======================================================
-# Core Extraction Logic
+# CORE
 # ======================================================
 def extract_skills_ai(jd_text: str):
-    # Try formatted JD extraction first
-    result = extract_skills_from_formatted_jd(jd_text)
-    if result["primarySkills"] or result["secondarySkills"] or result["otherSkills"]:
-        logging.info("🌟 JD parsed using formatted JD logic")
-        return result
+    skills = extract_skills_from_formatted_jd(jd_text)
+    if any(skills.values()):
+        return skills
+    return {
+        "primarySkills": [],
+        "secondarySkills": [],
+        "otherSkills": []
+    }
 
-    # Otherwise fallback to LLM extraction
-    logging.info("⚡ Falling back to LLM extraction")
-    return extract_skills_from_llm(jd_text)
-
-# ======================================================
-# Public API Wrappers
-# ======================================================
 def parse_jd(jd_text: str):
-    logging.info("🌐 API call: parse_jd()")
-
-    # NEW: extract metadata
-    metadata = extract_metadata(jd_text)
-
-    # Extract skills
+    meta = extract_metadata(jd_text)
     skills = extract_skills_ai(jd_text)
-
-    # Merge and return final result
-    return {**metadata, **skills}
+    return {**meta, **skills}
 
 def extract_skills(jd_text: str):
-    logging.info("🌐 API call: extract_skills()")
-    metadata = extract_metadata(jd_text)
-    skills = extract_skills_ai(jd_text)
-    return {**metadata, **skills}
+    return parse_jd(jd_text)
 
-# ======================================================
-# Manual Test
-# ======================================================
-if __name__ == "__main__":
-    logging.info("🧪 Running manual test example...")
-    sample_jd = """
-Client: Abscienx
-Role: C++ Dev
-Profiles Received From: Nikitha
 
-Primary Skills: HTML, CSS/SCSS, TypeScript, Angular/React/Vue, Accessibility
-Secondary Skills: Lit/Web Components, GitHub Copilot, StackBlitz
-Other Skills: Debugging, Documentation
-"""
-    result = parse_jd(sample_jd)
-    print(result)
-    logging.info("🧪 Manual test completed.")
+# # backend/jd_skill_extractor
+# import os
+# import re
+# import json
+# import logging
+# import traceback
+# try:
+#     from llama_cpp import Llama
+#     LLAMA_AVAILABLE = True
+# except ImportError:
+#     Llama = None
+#     LLAMA_AVAILABLE = False
+
+# # ======================================================
+# # Logging Setup
+# # ======================================================
+# logging.basicConfig(
+#     filename="skill_extractor.log",
+#     level=logging.DEBUG,
+#     format="%(asctime)s - %(levelname)s - %(message)s"
+# )
+
+# logging.info("======================================================")
+# logging.info("🚀 Starting JD Skill Extractor Backend")
+# logging.info("======================================================")
+
+# # ======================================================
+# # Load Local GGUF Model
+# # ======================================================
+# # MODEL_PATH = "./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf"
+
+# logging.debug("🔍 Checking model file path...")
+# # if not os.path.exists(MODEL_PATH):
+# #     logging.error(f"❌ Model not found at {MODEL_PATH}")
+# # else:
+# #     logging.info(f"📁 Model located. Loading from: {MODEL_PATH}")
+
+# # try:
+# #     llm = Llama(
+# #         model_path=MODEL_PATH,
+# #         n_ctx=4096,
+# #         n_threads=8,
+# #         temperature=0.2,
+# #         stop=["</s>"]
+# #     )
+# #     logging.info("✅ GGUF Model loaded successfully.")
+# # except Exception as e:
+# #     logging.error("❌ Fatal: Model loading failed.")
+# #     logging.error(traceback.format_exc())
+# #     raise e
+
+# # ======================================================
+# # Clean Input
+# # ======================================================
+# def clean_text(text: str) -> str:
+#     logging.debug("🧹 Cleaning JD text...")
+#     text = re.sub(r"\s+", " ", text)
+#     cleaned = text.strip()
+#     logging.debug(f"👉 Cleaned JD snippet (300 chars): {cleaned[:300]}")
+#     logging.debug(f"📝 JD total length: {len(cleaned)} chars")
+#     return cleaned
+
+# # ======================================================
+# # NEW FEATURE — Extract Client / Role / Profiles
+# # ======================================================
+# def extract_metadata(jd_text: str):
+#     logging.debug("🔍 Extracting Client, Role, Profiles Received From...")
+
+#     client = re.search(r"Client:\s*(.*)", jd_text)
+#     role = re.search(r"Role:\s*(.*)", jd_text)
+#     profiles = re.search(r"Profiles\s*Received\s*From:\s*(.*)", jd_text)
+
+#     metadata = {
+#         "client": client.group(1).strip() if client else "",
+#         "role": role.group(1).strip() if role else "",
+#         "profilesReceivedFrom": profiles.group(1).strip() if profiles else ""
+#     }
+
+#     logging.info(f"📌 Parsed Metadata: {metadata}")
+#     return metadata
+
+# # ======================================================
+# # AI Prompt Template
+# # ======================================================
+# EXTRACTION_PROMPT = """
+# You are an AI assistant that extracts skills from a Job Description.
+# Return skills in three categories EXACTLY like this:
+
+# {
+#  "primary": ["skill1", "skill2"],
+#  "secondary": ["skill1", "skill2"],
+#  "other": ["skill1", "skill2"]
+# }
+
+# Rules:
+# - Only technical skills (tools, languages, frameworks)
+# - Do not add soft skills
+# - No extra text, only JSON
+# - Do not invent any skills
+# - Do NOT split combined skills. If the JD lists Angular/React/Vue, keep it as a single skill.
+
+# Job Description:
+# """
+
+# # ======================================================
+# # Helper: Extract JSON from LLM output safely
+# # ======================================================
+# def extract_json_from_text(text: str):
+#     logging.debug("🔍 Attempting to extract JSON from LLM output...")
+#     try:
+#         match = re.search(r"\{.*?\}", text, re.DOTALL)
+#         if match:
+#             cleaned_json = match.group(0)
+#             return json.loads(cleaned_json)
+#         else:
+#             logging.error("❌ No JSON found in LLM output")
+#             return {"primary": [], "secondary": [], "other": []}
+#     except Exception:
+#         logging.error("❌ JSON extraction failed")
+#         logging.error(traceback.format_exc())
+#         logging.error(f"LLM output:\n{text}")
+#         return {"primary": [], "secondary": [], "other": []}
+
+# # ======================================================
+# # Extract Skills Using LLM
+# # ======================================================
+# def extract_skills_from_llm(jd_text: str):
+#     # if not LLAMA_AVAILABLE:
+#     #     logging.warning("⚠️ LLM not available. Skipping LLM extraction.")
+#     #     return {
+#     #         "primarySkills": [],
+#     #         "secondarySkills": [],
+#     #         "otherSkills": []
+#     #     }
+#     cleaned = clean_text(jd_text)
+#     prompt = EXTRACTION_PROMPT + cleaned + "\n\nReturn only JSON.\n"
+
+#     logging.info("⚡ Sending request to LLM...")
+#     try:
+#         response = llm(prompt, max_tokens=512, echo=False)
+#         logging.info("🤖 LLM responded successfully.")
+#     except Exception:
+#         logging.error("❌ LLM execution failed!")
+#         logging.error(traceback.format_exc())
+#         return {"primarySkills": [], "secondarySkills": [], "otherSkills": []}
+
+#     raw_output = response["choices"][0]["text"].strip()
+#     logging.info("📨 Raw LLM Output received")
+#     logging.debug(f"🧾 Raw output snippet (400 chars): {raw_output[:400]}")
+
+#     skills_json = extract_json_from_text(raw_output)
+#     result = {
+#         "primarySkills": skills_json.get("primary", []),
+#         "secondarySkills": skills_json.get("secondary", []),
+#         "otherSkills": skills_json.get("other", [])
+#     }
+#     logging.info(f"🎯 Extracted JD Skills: {result}")
+#     return result
+
+# # ======================================================
+# # Extract Skills From Formatted JD
+# # ======================================================
+# def extract_skills_from_formatted_jd(jd_text: str):
+#     logging.debug("🔍 Checking if JD is already in Primary/Secondary/Other format")
+#     try:
+#         primary = re.findall(r"Primary Skills:\s*(.*?)(?:Secondary Skills:|$)", jd_text, re.DOTALL)
+#         secondary = re.findall(r"Secondary Skills:\s*(.*?)(?:Other Skills:|$)", jd_text, re.DOTALL)
+#         other = re.findall(r"Other Skills:\s*(.*)", jd_text, re.DOTALL)
+
+#         def clean_list(skills_list):
+#             if not skills_list:
+#                 return []
+#             return [s.strip() for s in skills_list[0].split(",") if s.strip()]
+
+#         result = {
+#             "primarySkills": clean_list(primary),
+#             "secondarySkills": clean_list(secondary),
+#             "otherSkills": clean_list(other)
+#         }
+#         logging.debug(f"✅ Extracted from formatted JD: {result}")
+#         return result
+#     except Exception:
+#         logging.error("❌ Failed to extract from formatted JD")
+#         logging.error(traceback.format_exc())
+#         return {"primarySkills": [], "secondarySkills": [], "otherSkills": []}
+
+# # ======================================================
+# # Core Extraction Logic
+# # ======================================================
+# def extract_skills_ai(jd_text: str):
+#     # Try formatted JD extraction first
+#     result = extract_skills_from_formatted_jd(jd_text)
+#     if result["primarySkills"] or result["secondarySkills"] or result["otherSkills"]:
+#         logging.info("🌟 JD parsed using formatted JD logic")
+#         return result
+
+#     # Otherwise fallback to LLM extraction
+#     logging.info("⚡ Falling back to LLM extraction")
+#     return extract_skills_from_llm(jd_text)
+
+# # ======================================================
+# # Public API Wrappers
+# # ======================================================
+# def parse_jd(jd_text: str):
+#     logging.info("🌐 API call: parse_jd()")
+
+#     # NEW: extract metadata
+#     metadata = extract_metadata(jd_text)
+
+#     # Extract skills
+#     skills = extract_skills_ai(jd_text)
+
+#     # Merge and return final result
+#     return {**metadata, **skills}
+
+# def extract_skills(jd_text: str):
+#     logging.info("🌐 API call: extract_skills()")
+#     metadata = extract_metadata(jd_text)
+#     skills = extract_skills_ai(jd_text)
+#     return {**metadata, **skills}
+
+# # ======================================================
+# # Manual Test
+# # ======================================================
+# if __name__ == "__main__":
+#     logging.info("🧪 Running manual test example...")
+#     sample_jd = """
+# Client: Abscienx
+# Role: C++ Dev
+# Profiles Received From: Nikitha
+
+# Primary Skills: HTML, CSS/SCSS, TypeScript, Angular/React/Vue, Accessibility
+# Secondary Skills: Lit/Web Components, GitHub Copilot, StackBlitz
+# Other Skills: Debugging, Documentation
+# """
+#     result = parse_jd(sample_jd)
+#     print(result)
+#     logging.info("🧪 Manual test completed.")

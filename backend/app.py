@@ -261,86 +261,64 @@
 #     logger.info("Returning Excel file")
 #     return StreamingResponse(output, media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", headers=headers)
 
+
+# backend/app.py
 import os
+import io
 import uuid
+import json
 import shutil
 import tempfile
 import threading
 import logging
+from datetime import datetime
 from typing import List
 
-from fastapi import FastAPI, UploadFile, File, Form
+import pandas as pd
+from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse, StreamingResponse
+
+from logging_config import setup_logging
+from ai_resume_screen import parse_jd, extract_text, analyze_resume
+from jd_skill_extractor import extract_skills
+from screening_logger import save_screening_log
 
 # ======================================================
-# Logging
+# INIT
 # ======================================================
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+setup_logging()
 logger = logging.getLogger(__name__)
 
-# ======================================================
-# App Init
-# ======================================================
-app = FastAPI(title="AI Resume Screener")
+app = FastAPI(title="Resume Screening API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # tighten later
+    allow_origins=["*"],  # safe for now
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # ======================================================
-# In-Memory Job Store (Render friendly)
+# IN-MEMORY JOB STORE
 # ======================================================
-JOB_STATUS = {}    # job_id -> processing | completed | failed
-JOB_RESULTS = {}   # job_id -> results
-
-# ======================================================
-# MOCK / PLACEHOLDER LOGIC
-# Replace these with your actual implementations
-# ======================================================
-
-def parse_jd(jd_text: str):
-    # Simulate JD parsing
-    return {
-        "primarySkills": ["Python", "FastAPI", "AI"]
-    }
-
-def extract_text(file_path: str):
-    # Simulate resume text extraction
-    with open(file_path, "rb") as f:
-        return f.read().decode(errors="ignore")
-
-def analyze_resume(jd_skills, resume_text):
-    # Simulate slow AI inference
-    import time
-    time.sleep(1.2)
-
-    return {
-        "MatchScore": 75,
-        "Status": "Selected" if "Python" in resume_text else "Rejected"
-    }
-
-def save_screening_log(
-    client,
-    role,
-    key_skills,
-    total_profiles,
-    selected_profiles,
-    rejected_profiles
-):
-    logger.info(
-        f"📊 Screening Log | Client={client} Role={role} "
-        f"Total={total_profiles} Selected={len(selected_profiles)}"
-    )
+JOB_STATUS = {}     # job_id -> processing/completed/failed
+JOB_RESULTS = {}    # job_id -> results / error
 
 # ======================================================
-# Background Worker
+# HEALTH
+# ======================================================
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
+
+# ======================================================
+# BACKGROUND WORKER
 # ======================================================
 def run_resume_analysis(job_id, jd_text, resumes, client, role):
     logger.info(f"⚙️ Job started: {job_id}")
@@ -352,12 +330,13 @@ def run_resume_analysis(job_id, jd_text, resumes, client, role):
     try:
         jd_skills = parse_jd(jd_text)
 
-        for upload in resumes:
-            filename = upload.filename
-            tmp_path = os.path.join(workdir, filename)
+        for resume in resumes:
+            filename = resume["filename"]
+            content = resume["content"]
 
+            tmp_path = os.path.join(workdir, filename)
             with open(tmp_path, "wb") as f:
-                f.write(upload.file.read())
+                f.write(content)
 
             text = extract_text(tmp_path)
             analysis = analyze_resume(jd_skills, text)
@@ -367,7 +346,7 @@ def run_resume_analysis(job_id, jd_text, resumes, client, role):
                 **analysis
             })
 
-        selected = [r["Name"] for r in results if r["Status"] == "Selected"]
+        selected = [r["Name"] for r in results if r.get("Status") == "Selected"]
         rejected = [r["Name"] for r in results if r["Name"] not in selected]
 
         save_screening_log(
@@ -381,7 +360,6 @@ def run_resume_analysis(job_id, jd_text, resumes, client, role):
 
         JOB_RESULTS[job_id] = results
         JOB_STATUS[job_id] = "completed"
-
         logger.info(f"✅ Job completed: {job_id}")
 
     except Exception as e:
@@ -393,9 +371,8 @@ def run_resume_analysis(job_id, jd_text, resumes, client, role):
         shutil.rmtree(workdir, ignore_errors=True)
 
 # ======================================================
-# API ENDPOINTS
+# ANALYZE RESUMES (ASYNC SAFE)
 # ======================================================
-
 @app.post("/analyze-resumes")
 async def analyze_resumes(
     jd_text: str = Form(...),
@@ -405,41 +382,66 @@ async def analyze_resumes(
 ):
     job_id = str(uuid.uuid4())
 
-    thread = threading.Thread(
+    # 🔑 CRITICAL FIX: read files BEFORE background thread
+    resume_files = []
+    for upload in resumes:
+        resume_files.append({
+            "filename": upload.filename,
+            "content": await upload.read()
+        })
+
+    threading.Thread(
         target=run_resume_analysis,
-        args=(job_id, jd_text, resumes, client, role),
+        args=(job_id, jd_text, resume_files, client, role),
         daemon=True
-    )
-    thread.start()
+    ).start()
 
     return {
         "job_id": job_id,
         "message": "Resume screening started"
     }
 
-@app.get("/status/{job_id}")
+# ======================================================
+# JOB STATUS
+# ======================================================
+@app.get("/job-status/{job_id}")
 def job_status(job_id: str):
-    return {
-        "job_id": job_id,
-        "status": JOB_STATUS.get(job_id, "unknown")
-    }
-
-@app.get("/result/{job_id}")
-def job_result(job_id: str):
     status = JOB_STATUS.get(job_id)
+    if not status:
+        raise HTTPException(404, "Invalid job id")
+    return {"job_id": job_id, "status": status}
 
-    if status != "completed":
-        return {
-            "job_id": job_id,
-            "status": status
-        }
+# ======================================================
+# JOB RESULT
+# ======================================================
+@app.get("/job-result/{job_id}")
+def job_result(job_id: str):
+    if JOB_STATUS.get(job_id) != "completed":
+        raise HTTPException(400, "Job not completed")
+    return {"results": JOB_RESULTS.get(job_id)}
 
-    return {
-        "job_id": job_id,
-        "status": status,
-        "results": JOB_RESULTS.get(job_id, [])
-    }
+# ======================================================
+# EXPORT EXCEL
+# ======================================================
+@app.post("/export-excel")
+async def export_excel(results: List[dict]):
+    df = pd.DataFrame(results)
+    output = io.BytesIO()
 
-@app.get("/")
-def health():
-    return {"status": "running"}
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
+        df.to_excel(writer, index=False)
+
+    output.seek(0)
+    return StreamingResponse(
+        output,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": "attachment; filename=results.xlsx"}
+    )
+
+# ======================================================
+# RUN LOCAL
+# ======================================================
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app:app", host="0.0.0.0", port=port)
