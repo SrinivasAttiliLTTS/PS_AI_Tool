@@ -261,118 +261,109 @@
 #     logger.info("Returning Excel file")
 #     return StreamingResponse(output, media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", headers=headers)
 
-
 # backend/app.py
 import os
-import io
-import uuid
-import json
 import shutil
 import tempfile
-import threading
 import logging
-from datetime import datetime
-from typing import List
-
-import pandas as pd
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import StreamingResponse, JSONResponse
+from typing import List
+import io
+import pandas as pd
+import json
 
-from logging_config import setup_logging
+# Centralized logging
+logging.basicConfig(
+    filename="backend.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
+logger.info("🚀 Backend API Started")
+
+# Import your modules (ensure these exist in your project)
 from ai_resume_screen import parse_jd, extract_text, analyze_resume
 from jd_skill_extractor import extract_skills
 from screening_logger import save_screening_log
 
-# ======================================================
-# INIT
-# ======================================================
-setup_logging()
-logger = logging.getLogger(__name__)
-
 app = FastAPI(title="Resume Screening API")
 
+# ===============================
+# CORS - Update with your frontend URL
+# ===============================
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # safe for now
+    allow_origins=[
+        "https://<your-frontend>.onrender.com",
+        "http://localhost:3000"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# ======================================================
-# IN-MEMORY JOB STORE
-# ======================================================
-JOB_STATUS = {}     # job_id -> processing/completed/failed
-JOB_RESULTS = {}    # job_id -> results / error
-
-# ======================================================
-# HEALTH
-# ======================================================
 @app.get("/")
 def root():
+    logger.info("ROOT endpoint hit")
     return {"status": "ok"}
 
 @app.get("/ping")
 def ping():
     return {"status": "ok"}
 
-# ======================================================
-# BACKGROUND WORKER
-# ======================================================
-def run_resume_analysis(job_id, jd_text, resumes, client, role):
-    logger.info(f"⚙️ Job started: {job_id}")
-    JOB_STATUS[job_id] = "processing"
+# ===============================
+# Upload JD
+# ===============================
+@app.post("/upload-jd")
+async def upload_jd(jd_file: UploadFile = File(None), jd_text: str = Form(None)):
+    logger.info("📥 /upload-jd called")
+    text = ""
 
-    results = []
-    workdir = tempfile.mkdtemp(prefix="resumes_")
+    if jd_file:
+        contents = await jd_file.read()
+        tmp = tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(jd_file.filename)[1])
+        tmp.write(contents)
+        tmp.flush()
+        tmp.close()
+        text = extract_text(tmp.name)
+        os.unlink(tmp.name)
+    elif jd_text:
+        text = jd_text
+    else:
+        raise HTTPException(status_code=400, detail="Provide jd_file or jd_text")
 
-    try:
-        jd_skills = parse_jd(jd_text)
+    parsed = parse_jd(text)
+    return JSONResponse(parsed)
 
-        for resume in resumes:
-            filename = resume["filename"]
-            content = resume["content"]
+# ===============================
+# Extract JD keywords
+# ===============================
+@app.post("/extract-jd-keywords")
+async def extract_jd_keywords(jd_file: UploadFile = File(None), jd_text: str = Form(None)):
+    logger.info("📥 /extract-jd-keywords called")
+    text = ""
 
-            tmp_path = os.path.join(workdir, filename)
-            with open(tmp_path, "wb") as f:
-                f.write(content)
+    if jd_file:
+        contents = await jd_file.read()
+        tmp = tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(jd_file.filename)[1])
+        tmp.write(contents)
+        tmp.flush()
+        tmp.close()
+        text = extract_text(tmp.name)
+        os.unlink(tmp.name)
+    elif jd_text:
+        text = jd_text
+    else:
+        raise HTTPException(status_code=400, detail="Provide jd_file or jd_text")
 
-            text = extract_text(tmp_path)
-            analysis = analyze_resume(jd_skills, text)
+    parsed = extract_skills(text)
+    return JSONResponse(parsed)
 
-            results.append({
-                "Name": filename,
-                **analysis
-            })
-
-        selected = [r["Name"] for r in results if r.get("Status") == "Selected"]
-        rejected = [r["Name"] for r in results if r["Name"] not in selected]
-
-        save_screening_log(
-            client=client,
-            role=role,
-            key_skills=jd_skills.get("primarySkills", []),
-            total_profiles=len(results),
-            selected_profiles=selected,
-            rejected_profiles=rejected
-        )
-
-        JOB_RESULTS[job_id] = results
-        JOB_STATUS[job_id] = "completed"
-        logger.info(f"✅ Job completed: {job_id}")
-
-    except Exception as e:
-        logger.exception("❌ Job failed")
-        JOB_STATUS[job_id] = "failed"
-        JOB_RESULTS[job_id] = {"error": str(e)}
-
-    finally:
-        shutil.rmtree(workdir, ignore_errors=True)
-
-# ======================================================
-# ANALYZE RESUMES (ASYNC SAFE)
-# ======================================================
+# ===============================
+# Analyze Resumes (max 2 per request)
+# ===============================
 @app.post("/analyze-resumes")
 async def analyze_resumes(
     jd_text: str = Form(...),
@@ -380,67 +371,79 @@ async def analyze_resumes(
     client: str = Form(""),
     role: str = Form("")
 ):
-    job_id = str(uuid.uuid4())
+    if len(resumes) > 2:
+        raise HTTPException(status_code=400, detail="Too many resumes. Max 2 per request.")
 
-    # 🔑 CRITICAL FIX: read files BEFORE background thread
-    resume_files = []
-    for upload in resumes:
-        resume_files.append({
-            "filename": upload.filename,
-            "content": await upload.read()
-        })
+    jd_skills = parse_jd(jd_text)
+    results = []
+    workdir = tempfile.mkdtemp(prefix="resumes_")
 
-    threading.Thread(
-        target=run_resume_analysis,
-        args=(job_id, jd_text, resume_files, client, role),
-        daemon=True
-    ).start()
+    try:
+        for upload in resumes:
+            filename = upload.filename
+            tmp_path = os.path.join(workdir, filename)
+            content = await upload.read()
+            with open(tmp_path, "wb") as f:
+                f.write(content)
 
-    return {
-        "job_id": job_id,
-        "message": "Resume screening started"
-    }
+            text = extract_text(tmp_path)
+            analysis = analyze_resume(jd_skills, text)
+            result = {"Name": filename, **analysis}
+            results.append(result)
+    finally:
+        shutil.rmtree(workdir, ignore_errors=True)
 
-# ======================================================
-# JOB STATUS
-# ======================================================
-@app.get("/job-status/{job_id}")
-def job_status(job_id: str):
-    status = JOB_STATUS.get(job_id)
-    if not status:
-        raise HTTPException(404, "Invalid job id")
-    return {"job_id": job_id, "status": status}
+    # Save screening log
+    try:
+        key_skills = jd_skills.get("primarySkills") or jd_skills.get("primary", [])
+        all_profiles = [r["Name"] for r in results]
+        selected_profiles = [r["Name"] for r in results if r.get("Status") == "Selected"]
+        rejected_profiles = list(set(all_profiles) - set(selected_profiles))
 
-# ======================================================
-# JOB RESULT
-# ======================================================
-@app.get("/job-result/{job_id}")
-def job_result(job_id: str):
-    if JOB_STATUS.get(job_id) != "completed":
-        raise HTTPException(400, "Job not completed")
-    return {"results": JOB_RESULTS.get(job_id)}
+        save_screening_log(
+            client=client,
+            role=role,
+            key_skills=key_skills,
+            total_profiles=len(all_profiles),
+            selected_profiles=selected_profiles,
+            rejected_profiles=rejected_profiles
+        )
+    except Exception as e:
+        logger.error("❌ Screening log failed")
+        logger.exception(e)
 
-# ======================================================
-# EXPORT EXCEL
-# ======================================================
+    return {"results": results}
+
+# ===============================
+# Screening Logs (Read)
+# ===============================
+@app.get("/logs/screening")
+def get_screening_logs():
+    try:
+        if not os.path.exists("screening_logs.json"):
+            return []
+        with open("screening_logs.json", "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        logger.error("❌ Failed to read screening logs")
+        logger.exception(e)
+        return []
+
+# ===============================
+# Export CSV (lightweight for Render)
+# ===============================
 @app.post("/export-excel")
-async def export_excel(results: List[dict]):
+def export_excel(results: List[dict]):
     df = pd.DataFrame(results)
-    output = io.BytesIO()
-
-    with pd.ExcelWriter(output, engine="openpyxl") as writer:
-        df.to_excel(writer, index=False)
-
+    output = io.StringIO()
+    df.to_csv(output, index=False)
     output.seek(0)
-    return StreamingResponse(
-        output,
-        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        headers={"Content-Disposition": "attachment; filename=results.xlsx"}
-    )
+    headers = {'Content-Disposition': 'attachment; filename="results.csv"'}
+    return StreamingResponse(output, media_type="text/csv", headers=headers)
 
-# ======================================================
-# RUN LOCAL
-# ======================================================
+# ===============================
+# Run on Render
+# ===============================
 if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("PORT", 8000))
