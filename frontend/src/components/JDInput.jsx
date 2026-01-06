@@ -141,7 +141,7 @@ const [role, setRole] = useState("");
       const formData = new FormData();
       if (file) formData.append("jd_file", file);
       if (buildCombinedJDText()) formData.append("jd_text", buildCombinedJDText());
-      const response = await fetch("http://localhost:10000/extract-jd-keywords", {
+      const response = await fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords", {
         method: "POST",
         body: formData,
       });

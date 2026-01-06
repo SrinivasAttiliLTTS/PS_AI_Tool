@@ -120,7 +120,7 @@ export default function ScreeningHistory({ open, onClose }) {
 
     console.log("📡 Fetching screening logs...");
 
-    fetch("http://localhost:10000/logs/screening")
+    fetch("https://ps-ai-tool-mk0p.onrender.com/logs/screening")
       .then((res) => {
         console.log("✅ Response status:", res.status);
         return res.json();
