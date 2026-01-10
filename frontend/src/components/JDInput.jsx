@@ -144,7 +144,7 @@ const [role, setRole] = useState("");
       
       const response = await 
       // fetch("http://localhost:8000/extract-jd-keywords",
-      fetch("https://tap-person-endangered-internal.trycloudflare.com/extract-jd-keywords",
+      fetch("https://resulting-table-completely-ends.trycloudflare.com/extract-jd-keywords",
 
       // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
          {
