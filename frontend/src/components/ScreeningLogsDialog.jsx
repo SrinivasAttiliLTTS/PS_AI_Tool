@@ -22,7 +22,7 @@ useEffect(() => {
   console.log("📡 Fetching screening logs...");
 
   // fetch("http://localhost:8000/logs/screening")
-        fetch("https://resulting-table-completely-ends.trycloudflare.com/logs/screening")
+        fetch("https://smooth-treo-rentals-inflation.trycloudflare.com/logs/screening")
   // fetch("https://ps-ai-tool-mk0p.onrender.com/logs/screening")
     .then((res) => {
       console.log("✅ Response status:", res.status);

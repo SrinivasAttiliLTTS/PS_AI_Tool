@@ -413,5 +413,43 @@
     "Count": 1,
     "RejectedCount": 1,
     "Selected": true
+  },
+  {
+    "GeneratedOn": "2026-01-10T04:16:07.917017",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [
+      ".NET Core",
+      "C#",
+      "Web API",
+      "Angular"
+    ],
+    "TotalProfiles": 1,
+    "Selected Profiles": [],
+    "Rejected Profiles": [
+      "MirzaMohsin Baig.pdf"
+    ],
+    "Count": 0,
+    "RejectedCount": 1,
+    "Selected": false
+  },
+  {
+    "GeneratedOn": "2026-01-10T04:16:53.337873",
+    "Client": "",
+    "Role": "",
+    "KeySkill": [
+      ".NET Core",
+      "C#",
+      "Web API",
+      "Angular"
+    ],
+    "TotalProfiles": 1,
+    "Selected Profiles": [],
+    "Rejected Profiles": [
+      "MirzaMohsin Baig.pdf"
+    ],
+    "Count": 0,
+    "RejectedCount": 1,
+    "Selected": false
   }
 ]

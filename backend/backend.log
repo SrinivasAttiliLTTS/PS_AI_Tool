@@ -6475,3 +6475,184 @@ NameError: name 'MODEL_PATH' is not defined
 2026-01-10 09:40:34,960 - INFO - root - ======================================================
 2026-01-10 09:40:34,960 - INFO - root - 🚀 Starting JD Skill Extractor Backend
 2026-01-10 09:40:34,960 - INFO - root - ======================================================
+2026-01-10 09:45:16,745 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:45:16,746 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-10 09:45:16,747 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:107]
+2026-01-10 09:45:16,747 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:45:16,747 - DEBUG - python_multipart.multipart - Calling on_header_field with data[109:121]
+2026-01-10 09:45:16,747 - DEBUG - python_multipart.multipart - Calling on_header_value with data[123:133]
+2026-01-10 09:45:16,747 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:45:16,747 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:45:16,748 - DEBUG - python_multipart.multipart - Calling on_part_data with data[137:472]
+2026-01-10 09:45:16,748 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:45:16,748 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-10 09:45:16,749 - INFO - app - 📥 /extract-jd-keywords called
+2026-01-10 09:45:16,749 - INFO - app - JD file received: jd.txt
+2026-01-10 09:45:16,749 - INFO - app - JD file size: 335 bytes
+2026-01-10 09:45:16,749 - INFO - app - JD decoded as UTF-8
+2026-01-10 09:45:16,749 - INFO - app - Calling extract_skills()
+2026-01-10 09:45:16,749 - INFO - root - 🌐 API call: extract_skills()
+2026-01-10 09:45:16,749 - DEBUG - root - 🔍 Extracting Client, Role, Profiles Received From...
+2026-01-10 09:45:16,750 - INFO - root - 📌 Parsed Metadata: {'client': '', 'role': '', 'profilesReceivedFrom': ''}
+2026-01-10 09:45:16,750 - DEBUG - root - 🔍 Checking if JD is already in Primary/Secondary/Other format
+2026-01-10 09:45:16,751 - DEBUG - root - ✅ Extracted from formatted JD: {'primarySkills': ['Angular', 'Core Java', 'Java 8', 'Spring Boot', 'Microservices'], 'secondarySkills': ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Spring Framework', 'Hibernate', 'Full Stack Development', 'RESTful Services', 'SQL Databases'], 'otherSkills': ['JIRA', 'Agile/Scrum Methodologies', 'UI–Backend Integration', 'Healthcare / MedTech Imaging Domain (Good to Have)']}
+2026-01-10 09:45:16,751 - INFO - root - 🌟 JD parsed using formatted JD logic
+2026-01-10 09:45:16,751 - INFO - app - Extracted JD Skills: {'client': '', 'role': '', 'profilesReceivedFrom': '', 'primarySkills': ['Angular', 'Core Java', 'Java 8', 'Spring Boot', 'Microservices'], 'secondarySkills': ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Spring Framework', 'Hibernate', 'Full Stack Development', 'RESTful Services', 'SQL Databases'], 'otherSkills': ['JIRA', 'Agile/Scrum Methodologies', 'UI–Backend Integration', 'Healthcare / MedTech Imaging Domain (Good to Have)']}
+2026-01-10 09:45:45,534 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:45:45,535 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-10 09:45:45,536 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:88]
+2026-01-10 09:45:45,536 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:45:45,536 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:45:45,536 - DEBUG - python_multipart.multipart - Calling on_part_data with data[92:293]
+2026-01-10 09:45:45,536 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:45:45,536 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:45:45,536 - DEBUG - python_multipart.multipart - Calling on_header_field with data[337:356]
+2026-01-10 09:45:45,536 - DEBUG - python_multipart.multipart - Calling on_header_value with data[358:416]
+2026-01-10 09:45:45,536 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:45:45,537 - DEBUG - python_multipart.multipart - Calling on_header_field with data[418:430]
+2026-01-10 09:45:45,537 - DEBUG - python_multipart.multipart - Calling on_header_value with data[432:447]
+2026-01-10 09:45:45,537 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:45:45,537 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:45:45,537 - DEBUG - python_multipart.multipart - Calling on_part_data with data[451:19530]
+2026-01-10 09:45:45,537 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:19206]
+2026-01-10 09:45:45,541 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2224]
+2026-01-10 09:45:45,542 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7080]
+2026-01-10 09:45:45,543 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:10720]
+2026-01-10 09:45:45,545 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7080]
+2026-01-10 09:45:45,545 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:4248]
+2026-01-10 09:45:45,548 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:14968]
+2026-01-10 09:45:45,549 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:6472]
+2026-01-10 09:45:45,550 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2831]
+2026-01-10 09:45:45,551 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1]
+2026-01-10 09:45:45,551 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2832]
+2026-01-10 09:45:45,552 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2832]
+2026-01-10 09:45:45,553 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7888]
+2026-01-10 09:45:45,553 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:4248]
+2026-01-10 09:45:45,553 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1416]
+2026-01-10 09:45:45,555 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7080]
+2026-01-10 09:45:45,556 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2224]
+2026-01-10 09:45:45,557 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:5664]
+2026-01-10 09:45:45,560 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:9912]
+2026-01-10 09:45:45,560 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:5056]
+2026-01-10 09:45:45,561 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2832]
+2026-01-10 09:45:45,564 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:10720]
+2026-01-10 09:45:45,565 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:12744]
+2026-01-10 09:45:45,566 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:14968]
+2026-01-10 09:45:45,566 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:14968]
+2026-01-10 09:45:45,568 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1395]
+2026-01-10 09:45:45,570 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:9325]
+2026-01-10 09:45:45,571 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:13310]
+2026-01-10 09:45:45,571 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:45:45,571 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:45:45,571 - DEBUG - python_multipart.multipart - Calling on_header_field with data[13354:13373]
+2026-01-10 09:45:45,571 - DEBUG - python_multipart.multipart - Calling on_header_value with data[13375:13399]
+2026-01-10 09:45:45,571 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:45:45,572 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:45:45,572 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:45:45,572 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:45:45,572 - DEBUG - python_multipart.multipart - Calling on_header_field with data[13447:13466]
+2026-01-10 09:45:45,573 - DEBUG - python_multipart.multipart - Calling on_header_value with data[13468:13490]
+2026-01-10 09:45:45,573 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:45:45,573 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:45:45,573 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:45:45,573 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-10 09:45:45,575 - INFO - app - 📥 /analyze-resumes called
+2026-01-10 09:45:45,575 - INFO - app - JD Text length: 201 chars
+2026-01-10 09:45:45,575 - INFO - app - Total resumes received: 1
+2026-01-10 09:45:45,577 - INFO - app - JD Skills Parsed: {'primary': ['.NET Core', 'C#', 'Web API', 'Angular'], 'secondary': ['Azure App Services', 'Azure Storage', 'Azure Functions'], 'other': ['Debugging', 'Problem Solving', 'Team Collaboration', 'Scalable & Secure Application Development']}
+2026-01-10 09:45:45,579 - INFO - app - Temp resume directory: /var/folders/xj/kvb1xq9n1_sdg8m5_qrcd2th0000gr/T/resumes_dbj1t15r
+2026-01-10 09:45:45,579 - INFO - app - Processing resume: MirzaMohsin Baig.pdf
+2026-01-10 09:45:45,579 - INFO - app - Resume size: 223323 bytes
+2026-01-10 09:45:45,619 - INFO - app - Extracted resume text length: 12329 chars
+2026-01-10 09:46:07,915 - INFO - app - Resume analysis output: {'Strengths': 'Web API, Angular, Azure App Services, Azure Storage, Azure Functions, Debugging, Problem Solving, Scalable & Secure Application Development', 'Missing Primary': '.NET Core, C#', 'Missing Secondary': '', 'Primary Score': 50.0, 'Secondary Score': 100.0, 'Overall Score': 60.0, 'Years of Experience': 1, 'Status': 'Not Selected'}
+2026-01-10 09:46:07,915 - INFO - app - Cleaning temp directory
+2026-01-10 09:46:07,916 - INFO - app - Returning analysis result
+2026-01-10 09:46:07,918 - INFO - screening_logger - 📊 Screening log saved successfully
+2026-01-10 09:46:28,927 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:46:28,927 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-10 09:46:28,928 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:107]
+2026-01-10 09:46:28,928 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:46:28,928 - DEBUG - python_multipart.multipart - Calling on_header_field with data[109:121]
+2026-01-10 09:46:28,928 - DEBUG - python_multipart.multipart - Calling on_header_value with data[123:133]
+2026-01-10 09:46:28,929 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:46:28,929 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:46:28,929 - DEBUG - python_multipart.multipart - Calling on_part_data with data[137:472]
+2026-01-10 09:46:28,929 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:46:28,929 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:46:28,930 - DEBUG - python_multipart.multipart - Calling on_header_field with data[516:535]
+2026-01-10 09:46:28,930 - DEBUG - python_multipart.multipart - Calling on_header_value with data[537:562]
+2026-01-10 09:46:28,930 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:46:28,930 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:46:28,930 - DEBUG - python_multipart.multipart - Calling on_part_data with data[566:767]
+2026-01-10 09:46:28,930 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:46:28,931 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-10 09:46:28,931 - INFO - app - 📥 /extract-jd-keywords called
+2026-01-10 09:46:28,932 - INFO - app - JD file received: jd.txt
+2026-01-10 09:46:28,932 - INFO - app - JD file size: 335 bytes
+2026-01-10 09:46:28,932 - INFO - app - JD decoded as UTF-8
+2026-01-10 09:46:28,932 - INFO - app - Calling extract_skills()
+2026-01-10 09:46:28,932 - INFO - root - 🌐 API call: extract_skills()
+2026-01-10 09:46:28,932 - DEBUG - root - 🔍 Extracting Client, Role, Profiles Received From...
+2026-01-10 09:46:28,932 - INFO - root - 📌 Parsed Metadata: {'client': '', 'role': '', 'profilesReceivedFrom': ''}
+2026-01-10 09:46:28,932 - DEBUG - root - 🔍 Checking if JD is already in Primary/Secondary/Other format
+2026-01-10 09:46:28,933 - DEBUG - root - ✅ Extracted from formatted JD: {'primarySkills': ['Angular', 'Core Java', 'Java 8', 'Spring Boot', 'Microservices'], 'secondarySkills': ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Spring Framework', 'Hibernate', 'Full Stack Development', 'RESTful Services', 'SQL Databases'], 'otherSkills': ['JIRA', 'Agile/Scrum Methodologies', 'UI–Backend Integration', 'Healthcare / MedTech Imaging Domain (Good to Have)']}
+2026-01-10 09:46:28,933 - INFO - root - 🌟 JD parsed using formatted JD logic
+2026-01-10 09:46:28,933 - INFO - app - Extracted JD Skills: {'client': '', 'role': '', 'profilesReceivedFrom': '', 'primarySkills': ['Angular', 'Core Java', 'Java 8', 'Spring Boot', 'Microservices'], 'secondarySkills': ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Spring Framework', 'Hibernate', 'Full Stack Development', 'RESTful Services', 'SQL Databases'], 'otherSkills': ['JIRA', 'Agile/Scrum Methodologies', 'UI–Backend Integration', 'Healthcare / MedTech Imaging Domain (Good to Have)']}
+2026-01-10 09:46:31,811 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:46:31,811 - DEBUG - python_multipart.multipart - Calling on_header_field with data[42:61]
+2026-01-10 09:46:31,811 - DEBUG - python_multipart.multipart - Calling on_header_value with data[63:88]
+2026-01-10 09:46:31,812 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:46:31,812 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:46:31,812 - DEBUG - python_multipart.multipart - Calling on_part_data with data[92:293]
+2026-01-10 09:46:31,812 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:46:31,812 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:46:31,813 - DEBUG - python_multipart.multipart - Calling on_header_field with data[337:356]
+2026-01-10 09:46:31,813 - DEBUG - python_multipart.multipart - Calling on_header_value with data[358:416]
+2026-01-10 09:46:31,813 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:46:31,813 - DEBUG - python_multipart.multipart - Calling on_header_field with data[418:430]
+2026-01-10 09:46:31,813 - DEBUG - python_multipart.multipart - Calling on_header_value with data[432:447]
+2026-01-10 09:46:31,814 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:46:31,814 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:46:31,814 - DEBUG - python_multipart.multipart - Calling on_part_data with data[451:11344]
+2026-01-10 09:46:31,815 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:70576]
+2026-01-10 09:46:31,816 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:12744]
+2026-01-10 09:46:31,817 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:16384]
+2026-01-10 09:46:31,817 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7888]
+2026-01-10 09:46:31,817 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:20632]
+2026-01-10 09:46:31,818 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:5664]
+2026-01-10 09:46:31,819 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:3640]
+2026-01-10 09:46:31,820 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:11328]
+2026-01-10 09:46:31,820 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:10720]
+2026-01-10 09:46:31,821 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:2832]
+2026-01-10 09:46:31,822 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:7888]
+2026-01-10 09:46:31,823 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:4248]
+2026-01-10 09:46:31,825 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:5664]
+2026-01-10 09:46:31,825 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:1416]
+2026-01-10 09:46:31,830 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:14968]
+2026-01-10 09:46:31,830 - DEBUG - python_multipart.multipart - Calling on_part_data with data[0:15838]
+2026-01-10 09:46:31,830 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:46:31,830 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:46:31,830 - DEBUG - python_multipart.multipart - Calling on_header_field with data[15882:15901]
+2026-01-10 09:46:31,831 - DEBUG - python_multipart.multipart - Calling on_header_value with data[15903:15927]
+2026-01-10 09:46:31,831 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:46:31,831 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:46:31,831 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:46:31,831 - DEBUG - python_multipart.multipart - Calling on_part_begin with no data
+2026-01-10 09:46:31,831 - DEBUG - python_multipart.multipart - Calling on_header_field with data[15975:15994]
+2026-01-10 09:46:31,832 - DEBUG - python_multipart.multipart - Calling on_header_value with data[15996:16018]
+2026-01-10 09:46:31,832 - DEBUG - python_multipart.multipart - Calling on_header_end with no data
+2026-01-10 09:46:31,832 - DEBUG - python_multipart.multipart - Calling on_headers_finished with no data
+2026-01-10 09:46:31,832 - DEBUG - python_multipart.multipart - Calling on_part_end with no data
+2026-01-10 09:46:31,832 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-10 09:46:31,833 - INFO - app - 📥 /analyze-resumes called
+2026-01-10 09:46:31,833 - INFO - app - JD Text length: 201 chars
+2026-01-10 09:46:31,833 - INFO - app - Total resumes received: 1
+2026-01-10 09:46:31,833 - INFO - app - JD Skills Parsed: {'primary': ['.NET Core', 'C#', 'Web API', 'Angular'], 'secondary': ['Azure App Services', 'Azure Storage', 'Azure Functions'], 'other': ['Debugging', 'Problem Solving', 'Team Collaboration', 'Scalable & Secure Application Development']}
+2026-01-10 09:46:31,835 - INFO - app - Temp resume directory: /var/folders/xj/kvb1xq9n1_sdg8m5_qrcd2th0000gr/T/resumes_6j0aa88f
+2026-01-10 09:46:31,835 - INFO - app - Processing resume: MirzaMohsin Baig.pdf
+2026-01-10 09:46:31,836 - INFO - app - Resume size: 223323 bytes
+2026-01-10 09:46:31,871 - INFO - app - Extracted resume text length: 12329 chars
+2026-01-10 09:46:53,336 - INFO - app - Resume analysis output: {'Strengths': 'Web API, Angular, Azure App Services, Azure Storage, Azure Functions, Debugging, Problem Solving, Scalable & Secure Application Development', 'Missing Primary': '.NET Core, C#', 'Missing Secondary': '', 'Primary Score': 50.0, 'Secondary Score': 100.0, 'Overall Score': 60.0, 'Years of Experience': 1, 'Status': 'Not Selected'}
+2026-01-10 09:46:53,337 - INFO - app - Cleaning temp directory
+2026-01-10 09:46:53,337 - INFO - app - Returning analysis result
+2026-01-10 09:46:53,339 - INFO - screening_logger - 📊 Screening log saved successfully
