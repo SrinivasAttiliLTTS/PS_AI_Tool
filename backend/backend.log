@@ -6656,3 +6656,132 @@ NameError: name 'MODEL_PATH' is not defined
 2026-01-10 09:46:53,337 - INFO - app - Cleaning temp directory
 2026-01-10 09:46:53,337 - INFO - app - Returning analysis result
 2026-01-10 09:46:53,339 - INFO - screening_logger - 📊 Screening log saved successfully
+2026-01-19 10:51:32,753 - INFO - app - 🚀 Backend API Started
+2026-01-19 10:51:52,994 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: mps
+2026-01-19 10:51:52,994 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-19 10:51:53,055 - DEBUG - urllib3.connectionpool - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-19 10:51:53,319 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 10:51:53,336 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 10:51:53,571 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 10:51:53,587 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 10:51:53,816 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 10:51:53,832 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 10:51:54,052 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-19 10:51:54,069 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-19 10:51:54,305 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 10:51:54,319 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 10:51:54,544 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-19 10:51:54,566 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-19 10:51:54,798 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-19 10:51:55,077 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-19 10:51:55,096 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-19 10:51:55,500 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-19 10:51:55,518 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-19 10:51:55,766 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-19 10:51:56,101 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=True&expand=False HTTP/1.1" 200 6465
+2026-01-19 10:51:56,407 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-19 10:51:56,424 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-19 10:51:56,676 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6877
+2026-01-19 10:51:56,839 - INFO - root - ======================================================
+2026-01-19 10:51:56,839 - INFO - root - 🚀 Starting JD Skill Extractor Backend
+2026-01-19 10:51:56,839 - INFO - root - ======================================================
+2026-01-19 10:58:23,592 - DEBUG - python_multipart.multipart - Calling on_field_start with no data
+2026-01-19 10:58:23,594 - DEBUG - python_multipart.multipart - Calling on_field_name with data[0:5]
+2026-01-19 10:58:23,594 - DEBUG - python_multipart.multipart - Calling on_field_data with data[6:33]
+2026-01-19 10:58:23,594 - DEBUG - python_multipart.multipart - Calling on_field_end with no data
+2026-01-19 10:58:23,594 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-19 10:58:23,596 - INFO - app - 🔐 OTP for srinivasu.attili@ltts.com: 981463
+2026-01-19 11:00:07,753 - DEBUG - python_multipart.multipart - Calling on_field_start with no data
+2026-01-19 11:00:07,754 - DEBUG - python_multipart.multipart - Calling on_field_name with data[0:5]
+2026-01-19 11:00:07,754 - DEBUG - python_multipart.multipart - Calling on_field_data with data[6:33]
+2026-01-19 11:00:07,754 - DEBUG - python_multipart.multipart - Calling on_field_end with no data
+2026-01-19 11:00:07,755 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-19 11:00:07,755 - INFO - app - 🔐 OTP for srinivasu.attili@ltts.com: 660192
+2026-01-19 11:01:01,122 - DEBUG - python_multipart.multipart - Calling on_field_start with no data
+2026-01-19 11:01:01,124 - DEBUG - python_multipart.multipart - Calling on_field_name with data[0:5]
+2026-01-19 11:01:01,124 - DEBUG - python_multipart.multipart - Calling on_field_data with data[6:33]
+2026-01-19 11:01:01,124 - DEBUG - python_multipart.multipart - Calling on_field_end with no data
+2026-01-19 11:01:01,125 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-19 11:01:01,125 - INFO - app - 🔐 OTP for Srinivasu.Attili@Ltts.com: 599189
+2026-01-19 11:59:07,679 - DEBUG - python_multipart.multipart - Calling on_field_start with no data
+2026-01-19 11:59:07,680 - DEBUG - python_multipart.multipart - Calling on_field_name with data[0:5]
+2026-01-19 11:59:07,680 - DEBUG - python_multipart.multipart - Calling on_field_data with data[6:33]
+2026-01-19 11:59:07,681 - DEBUG - python_multipart.multipart - Calling on_field_end with no data
+2026-01-19 11:59:07,681 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-19 11:59:07,682 - INFO - app - 🔐 OTP for srinivasu.attili@ltts.com: 821254
+2026-01-19 12:00:59,279 - DEBUG - python_multipart.multipart - Calling on_field_start with no data
+2026-01-19 12:00:59,281 - DEBUG - python_multipart.multipart - Calling on_field_name with data[0:5]
+2026-01-19 12:00:59,281 - DEBUG - python_multipart.multipart - Calling on_field_data with data[6:33]
+2026-01-19 12:00:59,281 - DEBUG - python_multipart.multipart - Calling on_field_end with no data
+2026-01-19 12:00:59,281 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-19 12:00:59,282 - INFO - app - 🔐 OTP for srinivasu.attili@ltts.com: 957692
+2026-01-19 12:03:50,338 - INFO - app - 🚀 Backend API Started
+2026-01-19 12:04:15,434 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: mps
+2026-01-19 12:04:15,434 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-19 12:04:15,597 - DEBUG - urllib3.connectionpool - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-19 12:04:16,607 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 12:04:16,855 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 12:04:17,265 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 12:04:17,571 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 12:04:17,860 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 12:04:18,065 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 12:04:18,390 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-19 12:04:18,567 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-19 12:04:18,902 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 12:04:19,121 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 12:04:19,467 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-19 12:04:19,721 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-19 12:04:20,056 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-19 12:04:20,381 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-19 12:04:20,644 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-19 12:04:21,155 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-19 12:04:21,405 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-19 12:04:21,746 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-19 12:04:22,052 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=True&expand=False HTTP/1.1" 200 6465
+2026-01-19 12:04:22,408 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-19 12:04:22,646 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-19 12:04:22,994 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6876
+2026-01-19 12:04:23,280 - INFO - root - ======================================================
+2026-01-19 12:04:23,280 - INFO - root - 🚀 Starting JD Skill Extractor Backend
+2026-01-19 12:04:23,280 - INFO - root - ======================================================
+2026-01-19 12:05:41,785 - DEBUG - python_multipart.multipart - Calling on_field_start with no data
+2026-01-19 12:05:41,789 - DEBUG - python_multipart.multipart - Calling on_field_name with data[0:5]
+2026-01-19 12:05:41,789 - DEBUG - python_multipart.multipart - Calling on_field_data with data[6:33]
+2026-01-19 12:05:41,790 - DEBUG - python_multipart.multipart - Calling on_field_end with no data
+2026-01-19 12:05:41,790 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-19 12:05:41,794 - INFO - app - 🔐 OTP for srinivasu.attili@ltts.com: 170762
+2026-01-19 12:06:48,322 - INFO - app - 🚀 Backend API Started
+2026-01-19 12:07:07,540 - INFO - sentence_transformers.SentenceTransformer - Use pytorch device_name: mps
+2026-01-19 12:07:07,540 - INFO - sentence_transformers.SentenceTransformer - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-19 12:07:07,600 - DEBUG - urllib3.connectionpool - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-19 12:07:07,865 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 12:07:07,881 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 12:07:08,105 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 12:07:08,120 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 12:07:08,345 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 12:07:08,360 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 12:07:08,585 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-19 12:07:08,601 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-19 12:07:08,836 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 12:07:08,851 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 12:07:09,081 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-19 12:07:09,098 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-19 12:07:09,322 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-19 12:07:09,546 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-19 12:07:09,561 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-19 12:07:09,969 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-19 12:07:09,984 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-19 12:07:10,227 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-19 12:07:10,527 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=True&expand=False HTTP/1.1" 200 6465
+2026-01-19 12:07:10,835 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-19 12:07:10,852 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-19 12:07:11,090 - DEBUG - urllib3.connectionpool - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6876
+2026-01-19 12:07:11,334 - INFO - root - ======================================================
+2026-01-19 12:07:11,334 - INFO - root - 🚀 Starting JD Skill Extractor Backend
+2026-01-19 12:07:11,334 - INFO - root - ======================================================
+2026-01-19 12:07:22,092 - DEBUG - python_multipart.multipart - Calling on_field_start with no data
+2026-01-19 12:07:22,092 - DEBUG - python_multipart.multipart - Calling on_field_name with data[0:5]
+2026-01-19 12:07:22,093 - DEBUG - python_multipart.multipart - Calling on_field_data with data[6:33]
+2026-01-19 12:07:22,093 - DEBUG - python_multipart.multipart - Calling on_field_end with no data
+2026-01-19 12:07:22,093 - DEBUG - python_multipart.multipart - Calling on_end with no data
+2026-01-19 12:07:22,094 - INFO - app - 🔐 OTP for srinivasu.attili@ltts.com: 417792

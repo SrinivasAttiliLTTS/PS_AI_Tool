@@ -143,8 +143,9 @@ const [role, setRole] = useState("");
       if (buildCombinedJDText()) formData.append("jd_text", buildCombinedJDText());
       
       const response = await 
+
       // fetch("http://localhost:8000/extract-jd-keywords",
-      fetch("https://smooth-treo-rentals-inflation.trycloudflare.com/extract-jd-keywords",
+      fetch("https://amazing-rebecca-investigator-daisy.trycloudflare.com/extract-jd-keywords",
 
       // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
          {
