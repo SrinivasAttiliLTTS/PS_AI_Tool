@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import axios from "axios";
 
-const API = "https://amazing-rebecca-investigator-daisy.trycloudflare.com";
+const API = "https://presents-smilies-starts-cooper.trycloudflare.com";
 // const API = "http://localhost:8000";
 
 export default function Login({ onLogin }) {
@@ -11,7 +11,18 @@ export default function Login({ onLogin }) {
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState(1);
 
+  const ALLOWED_EMAILS = [
+    "srinivasu.attili@ltts.com",
+    "manjunath.hs@ltts.com",
+    "vijayakirubagiri.k@ltts.com"
+  ];
+
   const sendOtp = async () => {
+    // 🔒 Email whitelist check
+    if (!ALLOWED_EMAILS.includes(email.toLowerCase())) {
+      alert("You are not authorized to access this application.");
+      return;
+    }
     try {
       await axios.post(`${API}/auth/send-otp`, new URLSearchParams({ email }));
       setStep(2);

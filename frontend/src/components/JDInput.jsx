@@ -45,14 +45,14 @@ const saveStore = (items) =>
 const parseCombinedJDText = (text) => {
   const pick = (label) => {
     const regex = new RegExp(`${label}\\s*:\\s*([\\s\\S]*?)(?=\\n\\s*(Primary|Secondary|Other)\\s*:|$)`, "i");
-  const match = text.match(regex);
-  return match
-    ? match[1]
+    const match = text.match(regex);
+    return match
+      ? match[1]
         .trim()
         .split(/\n+/)   // split by new line
         .map((x) => x.trim())
         .filter(Boolean)
-    : [];
+      : [];
     //   const regex = new RegExp(`${label}\\s*:\\s*([\\s\\S]*?)(?=\\n\\s*(Primary|Secondary|Other)\\s*:|$)`, "i");
     // const m = text.match(
     //   regex
@@ -61,15 +61,15 @@ const parseCombinedJDText = (text) => {
     // return m ? m[1] : "";
   };
   // console.log(text);
-console.log(pick("Primary"));
-console.log(pick("Secondary"));
-console.log(pick("Other"));
+  console.log(pick("Primary"));
+  console.log(pick("Secondary"));
+  console.log(pick("Other"));
 
   const arr = (s) =>
     (s || "")
-      // .split(" ")
-      // .map((x) => x.trim())
-      // .filter(Boolean);
+  // .split(" ")
+  // .map((x) => x.trim())
+  // .filter(Boolean);
 
   return {
     primarySkills: arr(pick("Primary")),
@@ -90,9 +90,9 @@ export default function JDInput({ onParsed }) {
   const [loading, setLoading] = useState(false);
   const [library, setLibrary] = useState([]);
   const [filter, setFilter] = useState("");
-// NEW: Client & Role state
-const [client, setClient] = useState("");
-const [role, setRole] = useState("");
+  // NEW: Client & Role state
+  const [client, setClient] = useState("");
+  const [role, setRole] = useState("");
 
   useEffect(() => {
     setLibrary(loadStore());
@@ -141,17 +141,17 @@ const [role, setRole] = useState("");
       const formData = new FormData();
       if (file) formData.append("jd_file", file);
       if (buildCombinedJDText()) formData.append("jd_text", buildCombinedJDText());
-      
-      const response = await 
 
-      // fetch("http://localhost:8000/extract-jd-keywords",
-      fetch("https://amazing-rebecca-investigator-daisy.trycloudflare.com/extract-jd-keywords",
+      const response = await
 
-      // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
-         {
-        method: "POST",
-        body: formData,
-      });
+        // fetch("http://localhost:8000/extract-jd-keywords",
+          fetch("https://presents-smilies-starts-cooper.trycloudflare.com/extract-jd-keywords",
+
+          // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
+          {
+            method: "POST",
+            body: formData,
+          });
 
       if (!response.ok) {
         const error = await response.text();
@@ -161,29 +161,29 @@ const [role, setRole] = useState("");
       const data = await response.json();
       // Update state fields
       setPrimary(data.primarySkills.join(", ").split(",")
-      .map(s => s.trim())
-      .filter(Boolean)
-      .join("\n"));
+        .map(s => s.trim())
+        .filter(Boolean)
+        .join("\n"));
       setSecondary(data.secondarySkills.join(", ").split(",")
-      .map(s => s.trim())
-      .filter(Boolean)
-      .join("\n"));
+        .map(s => s.trim())
+        .filter(Boolean)
+        .join("\n"));
       setOther(data.otherSkills.join(", ").split(",")
-      .map(s => s.trim())
-      .filter(Boolean)
-      .join("\n"));
+        .map(s => s.trim())
+        .filter(Boolean)
+        .join("\n"));
 
-console.log(data);
+      console.log(data);
       // onParsed(data, buildCombinedJDText());
-// NEW: include client & role
-onParsed(
-  {
-    ...data,
-    client,
-    role,
-  },
-  buildCombinedJDText()
-);
+      // NEW: include client & role
+      onParsed(
+        {
+          ...data,
+          client,
+          role,
+        },
+        buildCombinedJDText()
+      );
       // Save automatically if JD name provided
       if (jdName.trim()) handleSave();
     } catch (err) {
@@ -248,100 +248,100 @@ onParsed(
             />
 
             <CardContent sx={{ overflowY: "auto" }}>
-              <Stack spacing={3}>
+              <Stack spacing={1}>
                 {/* SKILL INPUT FIELDS */}
                 <Grid container spacing={2}>
 
-  {/* PRIMARY SKILLS */}
-  <Grid item xs={12} md={4}>
-    <TextField
-  fullWidth
-  label="Primary Skills"
-  multiline
-  value={primary}
-  onChange={(e) => setPrimary(e.target.value)}   // user types freely
-  onBlur={() =>
-    setPrimary(
-      primary
-        .split(",")
-        .map(s => s.trim())
-        .filter(Boolean)
-        .join("\n")  // convert to multiline format
-    )
-  }
-  sx={{
-    "& .MuiInputBase-root": {
-      minHeight: 280,
-      maxHeight: 280,
-      overflowY: "auto",
-    },
-  }}
-/>
+                  {/* PRIMARY SKILLS */}
+                  <Grid item xs={12} md={4}>
+                    <TextField
+                      fullWidth
+                      label="Primary Skills"
+                      multiline
+                      value={primary}
+                      onChange={(e) => setPrimary(e.target.value)}   // user types freely
+                      onBlur={() =>
+                        setPrimary(
+                          primary
+                            .split(",")
+                            .map(s => s.trim())
+                            .filter(Boolean)
+                            .join("\n")  // convert to multiline format
+                        )
+                      }
+                      sx={{
+                        "& .MuiInputBase-root": {
+                          minHeight: 280,
+                          maxHeight: 280,
+                          overflowY: "auto",
+                        },
+                      }}
+                    />
 
 
-  </Grid>
+                  </Grid>
 
-  {/* SECONDARY SKILLS */}
-  <Grid item xs={12} md={4}>
-  
-<TextField
-  fullWidth
-  label="Secondary Skills"
-  multiline
-  value={secondary}
-  onChange={(e) => setSecondary(e.target.value)}   // user types freely
-  onBlur={() =>
-    setSecondary(
-      secondary
-        .split(",")
-        .map(s => s.trim())
-        .filter(Boolean)
-        .join("\n")   // convert to multiline format
-    )
-  }
-  sx={{
-    "& .MuiInputBase-root": {
-      minHeight: 280,
-      maxHeight: 280,
-      overflowY: "auto",
-    },
-  }}
-/>
+                  {/* SECONDARY SKILLS */}
+                  <Grid item xs={12} md={4}>
 
-  </Grid>
+                    <TextField
+                      fullWidth
+                      label="Secondary Skills"
+                      multiline
+                      value={secondary}
+                      onChange={(e) => setSecondary(e.target.value)}   // user types freely
+                      onBlur={() =>
+                        setSecondary(
+                          secondary
+                            .split(",")
+                            .map(s => s.trim())
+                            .filter(Boolean)
+                            .join("\n")   // convert to multiline format
+                        )
+                      }
+                      sx={{
+                        "& .MuiInputBase-root": {
+                          minHeight: 280,
+                          maxHeight: 280,
+                          overflowY: "auto",
+                        },
+                      }}
+                    />
 
-  {/* OTHER SKILLS */}
-  <Grid item xs={12} md={4}>
+                  </Grid>
 
-<TextField
-  fullWidth
-  label="Other Skills"
-  multiline
-  value={other}
-  onChange={(e) => setOther(e.target.value)}   // user types freely
-  onBlur={() =>
-    setOther(
-      other
-      .split(",")
-      .map(s => s.trim())
-      .filter(Boolean)
-      .join("\n")
-        // .split("\n")
-        // .map(s => s.trim())
-        // .filter(Boolean)
-        // .join("\n")   // convert to multiline format
-    )
-  }
-  sx={{
-    "& .MuiInputBase-root": {
-      minHeight: 280,
-      maxHeight: 280,
-      overflowY: "auto",
-    },
-  }}
-/>
+                  {/* OTHER SKILLS */}
+                  <Grid item xs={12} md={4}>
 
-    {/* <TextField
+                    <TextField
+                      fullWidth
+                      label="Other Skills"
+                      multiline
+                      value={other}
+                      onChange={(e) => setOther(e.target.value)}   // user types freely
+                      onBlur={() =>
+                        setOther(
+                          other
+                            .split(",")
+                            .map(s => s.trim())
+                            .filter(Boolean)
+                            .join("\n")
+                          // .split("\n")
+                          // .map(s => s.trim())
+                          // .filter(Boolean)
+                          // .join("\n")   // convert to multiline format
+                        )
+                      }
+                      sx={{
+                        "& .MuiInputBase-root": {
+                          minHeight: 280,
+                          maxHeight: 280,
+                          overflowY: "auto",
+                        },
+                      }}
+                    />
+
+                    {/* <TextField
   fullWidth
   label="Other Skills"
   multiline
@@ -370,36 +370,36 @@ onParsed(
   }}
 /> */}
 
-  </Grid>
+                  </Grid>
 
-</Grid>
+                </Grid>
 
-{/* NEW: Client & Role Input */}
-<Grid container spacing={2}>
-  <Grid item xs={6}>
-    <TextField
-      fullWidth
-      label="Client"
-      placeholder="Ex: LTTS / TCS / Internal"
-      value={client}
-      onChange={(e) => setClient(e.target.value)}
-    />
-  </Grid>
+                {/* NEW: Client & Role Input */}
+                <Grid container spacing={2}>
+                  <Grid item xs={6}>
+                    <TextField
+                      fullWidth
+                      label="Client"
+                      placeholder="Ex: LTTS / TCS / Internal"
+                      value={client}
+                      onChange={(e) => setClient(e.target.value)}
+                    />
+                  </Grid>
 
-  <Grid item xs={6}>
-    <TextField
-      fullWidth
-      label="Role"
-      placeholder="Ex: Senior React Developer"
-      value={role}
-      onChange={(e) => setRole(e.target.value)}
-    />
-  </Grid>
-</Grid>
-                <Divider />
+                  <Grid item xs={6}>
+                    <TextField
+                      fullWidth
+                      label="Role"
+                      placeholder="Ex: Senior React Developer"
+                      value={role}
+                      onChange={(e) => setRole(e.target.value)}
+                    />
+                  </Grid>
+                </Grid>
+                {/* <Divider /> */}
 
                 {/* JD NAME */}
-                <Grid container spacing={2}>
+                <Grid container spacing={2} alignItems="center">
                   <Grid item xs={9}>
                     <TextField
                       fullWidth
@@ -424,7 +424,7 @@ onParsed(
 
                 {/* <Divider /> */}
 
-                
+
               </Stack>
             </CardContent>
           </Card>
@@ -562,16 +562,16 @@ onParsed(
                           {parsed.primarySkills.length +
                             parsed.secondarySkills.length >
                             5 && (
-                            <Chip
-                              label="+ more"
-                              size="small"
-                              sx={{
-                                fontSize: "0.65rem",
-                                height: 20,
-                                background: "#eee",
-                              }}
-                            />
-                          )}
+                              <Chip
+                                label="+ more"
+                                size="small"
+                                sx={{
+                                  fontSize: "0.65rem",
+                                  height: 20,
+                                  background: "#eee",
+                                }}
+                              />
+                            )}
                         </Box>
                       </Box>
                     );
@@ -581,31 +581,57 @@ onParsed(
             </CardContent>
 
             {/* FILE + PARSE BUTTON */}
-                <Stack direction="row" spacing={0} alignItems="center" justifyContent={"space-around"}>
+            <Grid container spacing={2} alignItems="center">
+              {/* File Upload */}
+              <Grid item xs={8} sx={{ pb: 2 }}>
+                <Button
+                  variant="outlined"
+                  component="label"
+                  fullWidth
+                  sx={{
+                    height: "30px",
+                    borderRadius: "1px",
+                    borderColor: "black",
+                    borderWidth: "1px",
+                    justifyContent: "flex-start",
+                    fontSize: "13px",
+                    textTransform: "none",
+                    color: "black",
+                    "&:hover": {
+                      borderColor: "black",      // 👈 keep border black on hover
+                      backgroundColor: "transparent",
+                    },
+                  }}
+                >
+                  {file ? file.name : "Upload JD"}
                   <input
                     type="file"
+                    hidden
                     accept=".txt,.pdf,.doc,.docx"
                     onChange={(e) => setFile(e.target.files[0])}
-                    style={{
-    height: "40px",
-    fontSize: "11px",   // <-- required for height to apply
-    // padding: "12px",
-    borderRadius: "8px",
-  }}
                   />
+                </Button>
+              </Grid>
 
-                  <Grid item xs={4}>
-                    <Button
-                      fullWidth
-                      variant="outlined"
-                      startIcon={<SaveIcon />}
-                    onClick={handleUpload}
-                    >
-                      Parse JD
-                    </Button>
-                  </Grid>
+              {/* Parse JD Button */}
+              <Grid item xs={4} sx={{ pb: 2 }}>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  onClick={handleUpload}
+                  sx={{
+                    height: "40px",
+                    whiteSpace: "nowrap",   // 👈 prevents 2-line text
+                    textTransform: "none",
+                  }}
+                >
+                  Parse JD
+                </Button>
+              </Grid>
+            </Grid>
 
-                  {/* <Button
+
+            {/* <Button
                     variant="contained"
                     startIcon={<UploadIcon />}
                     disabled={loading}
@@ -613,21 +639,21 @@ onParsed(
                   >
                     Parse JD
                   </Button> */}
-                </Stack>
+            {/* </Stack> */}
           </Card>
-          
+
         </Grid>
-        
+
       </Grid>
-      
+
       {/* GLOBAL LOADER */}
       {loading && (
         <Backdrop
           open={true}
           sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         >
-        <CircularProgress color="inherit" />
-      </Backdrop>
+          <CircularProgress color="inherit" />
+        </Backdrop>
       )}
     </Box>
   );

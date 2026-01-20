@@ -89,7 +89,41 @@ console.log("Role:", role);
             cursor: "pointer",
           }}
         >
-          <input
+          <Button
+  variant="outlined"
+  component="label"
+  fullWidth
+  sx={{
+    height: "40px",
+    borderRadius: "8px",
+    borderColor: "black",
+    borderWidth: "1px",
+    color: "black",                 // text color
+    justifyContent: "flex-start",
+    fontSize: "14px",
+    textTransform: "none",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    "&:hover": {
+      borderColor: "black",
+      backgroundColor: "transparent",
+    },
+  }}
+>
+  {files?.length
+    ? `${files.length} file(s) selected`
+    : "Upload Resumes"}
+
+  <input
+    type="file"
+    hidden
+    multiple
+    onChange={handleFiles}
+  />
+</Button>
+
+          {/* <input
             type="file"
             multiple
             onChange={handleFiles}
@@ -101,7 +135,7 @@ console.log("Role:", role);
     // padding: "12px",
     borderRadius: "8px",
   }}
-          />
+          /> */}
         </Box>
 
         <Button
