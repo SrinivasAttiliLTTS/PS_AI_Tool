@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import axios from "axios";
 
-const API = "https://presents-smilies-starts-cooper.trycloudflare.com";
+const API = "https://flex-marc-advances-hand.trycloudflare.com";
 // const API = "http://localhost:8000";
 
 export default function Login({ onLogin }) {
@@ -41,6 +41,7 @@ export default function Login({ onLogin }) {
 
       // ✅ Pass BOTH token and email to App
       onLogin({ token: res.data.token, email: res.data.email });
+      console.log("VERIFY OTP RESPONSE:", res.data);
     } catch (err) {
       console.error(err);
       alert(err.response?.data?.detail || "OTP verification failed");

@@ -159,6 +159,7 @@ function App() {
   const isAuthenticated = Boolean(token);
 
   const handleLogin = ({ token, email }) => {
+      console.log("TOKEN RECEIVED:", token); // 🔍 debug
     localStorage.setItem("token", token);
     localStorage.setItem("email", email);
     setToken(token);

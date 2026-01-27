@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const API_BASE = "https://ps-ai-tool-mk0p.onrender.com"; 
-const API_BASE = "https://presents-smilies-starts-cooper.trycloudflare.com";
+const API_BASE = "https://flex-marc-advances-hand.trycloudflare.com";
 // const API_BASE = "http://localhost:8000";
 // const API_BASE = process.env.REACT_APP_API_BASE || "https://ai-resume-screen-backend.onrender.com";
 export async function uploadJD(jdFile, jdText) {
@@ -13,13 +13,14 @@ export async function uploadJD(jdFile, jdText) {
 }
 
 export async function analyzeResumes(jdText, files, client, role) {
-  console.log("#################");
+  const email = localStorage.getItem("email");
   const fd = new FormData();
   fd.append("jd_text", jdText);
   for (let i = 0; i < files.length; i++) fd.append("resumes", files[i], files[i].name);
   fd.append("client", client || "");
   fd.append("role", role || "");
-  // console.log("##########", client, role)
+  fd.append("user", email || "");
+
   const res = await axios.post(`${API_BASE}/analyze-resumes`, fd, { headers: { "Content-Type": "multipart/form-data" } });
   return res.data;
 }

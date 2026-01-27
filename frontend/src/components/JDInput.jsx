@@ -118,8 +118,16 @@ export default function JDInput({ onParsed }) {
     const entry = {
       name: jdName.trim(),
       jdText,
+      client,
+      role,
       createdAt: Date.now(),
     };
+
+    // const entry = {
+    //   name: jdName.trim(),
+    //   jdText,
+    //   createdAt: Date.now(),
+    // };
 
     if (exists >= 0) list[exists] = entry;
     else list.unshift(entry);
@@ -145,7 +153,7 @@ export default function JDInput({ onParsed }) {
       const response = await
 
         // fetch("http://localhost:8000/extract-jd-keywords",
-          fetch("https://presents-smilies-starts-cooper.trycloudflare.com/extract-jd-keywords",
+          fetch("https://flex-marc-advances-hand.trycloudflare.com/extract-jd-keywords",
 
           // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
           {
@@ -209,9 +217,19 @@ export default function JDInput({ onParsed }) {
       .filter(Boolean)
       .join("\n"));
     setJdName(item.name);
-    setClient("");
-    setRole("");
-    onParsed(parsed, item.jdText);
+    setClient(item.client || "");
+    setRole(item.role || "");
+    // setClient("");
+    // setRole("");
+    onParsed(
+    {
+      ...parsed,
+      client: item.client || "",
+      role: item.role || "",
+    },
+    item.jdText
+  );
+    // onParsed(parsed, item.jdText);
   };
 
   const handleDelete = (name) => {
