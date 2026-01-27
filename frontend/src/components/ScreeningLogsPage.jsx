@@ -14,7 +14,8 @@ export default function ScreeningLogsPage() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:8000/logs/screening")
+        fetch("https://flex-marc-advances-hand.trycloudflare.com/logs/screening")
+    // fetch("http://localhost:8000/logs/screening")
       .then((res) => res.json())
       .then(setLogs)
       .catch(() => setLogs([]));
