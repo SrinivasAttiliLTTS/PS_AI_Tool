@@ -14,7 +14,8 @@ export default function Login({ onLogin }) {
   const ALLOWED_EMAILS = [
     "srinivasu.attili@ltts.com",
     "manjunath.hs@ltts.com",
-    "vijayakirubagiri.k@ltts.com"
+    "madhu.balan@ltts.com",
+    "sagar.patil@ltts.com"
   ];
 
   const sendOtp = async () => {
