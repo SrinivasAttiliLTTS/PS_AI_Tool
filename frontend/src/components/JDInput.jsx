@@ -153,7 +153,7 @@ export default function JDInput({ onParsed }) {
       const response = await
 
         // fetch("http://localhost:8000/extract-jd-keywords",
-          fetch("https://flex-marc-advances-hand.trycloudflare.com/extract-jd-keywords",
+          fetch("https://hair-knights-herein-keyboard.trycloudflare.com/extract-jd-keywords",
 
           // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
           {
