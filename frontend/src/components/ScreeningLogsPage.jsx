@@ -14,7 +14,7 @@ export default function ScreeningLogsPage() {
   });
 
   useEffect(() => {
-        fetch("https://hair-knights-herein-keyboard.trycloudflare.com/logs/screening")
+        fetch("https://axis-mark-top-hart.trycloudflare.com/logs/screening")
     // fetch("http://localhost:8000/logs/screening")
       .then((res) => res.json())
       .then(setLogs)
