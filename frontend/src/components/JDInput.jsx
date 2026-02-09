@@ -612,14 +612,14 @@ export default function JDInput({ onParsed }) {
                   sx={{
                     height: "30px",
                     borderRadius: "1px",
-                    borderColor: "black",
+                    borderColor: "#1976D2",
                     borderWidth: "1px",
                     justifyContent: "flex-start",
                     fontSize: "13px",
                     textTransform: "none",
-                    color: "black",
+                    color: "#1976D2", 
                     "&:hover": {
-                      borderColor: "black",      // 👈 keep border black on hover
+                      borderColor: "#1976D2",       // 👈 keep border black on hover
                       backgroundColor: "transparent",
                     },
                   }}

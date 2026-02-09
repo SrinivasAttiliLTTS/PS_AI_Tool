@@ -100,9 +100,12 @@ console.log("Role:", role);
   sx={{
     height: "40px",
     borderRadius: "8px",
-    borderColor: "black",
+    // borderColor: "blue",
+      borderColor: "#1976D2",                // text color
     borderWidth: "1px",
-    color: "black",                 // text color
+      color: "#1976D2",                // text color
+
+    // color: "blue",                 // text color
     justifyContent: "flex-start",
     fontSize: "14px",
     textTransform: "none",
@@ -110,7 +113,8 @@ console.log("Role:", role);
     overflow: "hidden",
     textOverflow: "ellipsis",
     "&:hover": {
-      borderColor: "black",
+      borderColor: "#1976D2", 
+      // borderColor: "black",
       backgroundColor: "transparent",
     },
   }}
