@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const API_BASE = "https://ps-ai-tool-mk0p.onrender.com"; 
-const API_BASE = "https://axis-mark-top-hart.trycloudflare.com";
+const API_BASE = "https://yield-gps-share-choosing.trycloudflare.com";
 // const API_BASE = "http://localhost:8000";
 // const API_BASE = process.env.REACT_APP_API_BASE || "https://ai-resume-screen-backend.onrender.com";
 export async function uploadJD(jdFile, jdText) {

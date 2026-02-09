@@ -13,6 +13,9 @@ import {
 import { analyzeResumes } from "../api/api";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 
 export default function ResumeUploader({ jdText, onResults, client, role}) {
   const [files, setFiles] = useState([]);
@@ -90,6 +93,7 @@ console.log("Role:", role);
           }}
         >
           <Button
+          startIcon={<FileUploadIcon />}
   variant="outlined"
   component="label"
   fullWidth

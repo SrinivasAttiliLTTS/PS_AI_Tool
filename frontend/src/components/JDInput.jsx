@@ -22,6 +22,9 @@ import UploadIcon from "@mui/icons-material/UploadFile";
 import { uploadJD } from "../api/api"; // keep your existing api for resume upload
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 
 // -------------------------
 // Local Storage Helpers
@@ -153,7 +156,7 @@ export default function JDInput({ onParsed }) {
       const response = await
 
         // fetch("http://localhost:8000/extract-jd-keywords",
-          fetch("https://axis-mark-top-hart.trycloudflare.com/extract-jd-keywords",
+          fetch("https://yield-gps-share-choosing.trycloudflare.com/extract-jd-keywords",
 
           // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
           {
@@ -397,7 +400,7 @@ export default function JDInput({ onParsed }) {
                   <Grid item xs={6}>
                     <TextField
                       fullWidth
-                      label="Client"
+                      label="Account"
                       placeholder="Ex: LTTS / TCS / Internal"
                       value={client}
                       onChange={(e) => setClient(e.target.value)}
@@ -637,6 +640,8 @@ export default function JDInput({ onParsed }) {
                   variant="outlined"
                   fullWidth
                   onClick={handleUpload}
+                  // startIcon={<SaveIcon />}
+startIcon={<FileUploadIcon />} 
                   sx={{
                     height: "40px",
                     whiteSpace: "nowrap",   // 👈 prevents 2-line text
