@@ -230,17 +230,29 @@ function App() {
       />
 
       {/* RESUME UPLOADER */}
-      <ResumeUploader
+      {/* RESULTS TABLE (Upload + Analyze + Export inside header) */}
+<Box sx={{ mt: 3 }}>
+  <ResultsTable
+    rows={results || []}
+    setRows={setResults}
+    jdParsed={jdParsed}
+    jdText={jdText}
+    client={client}
+    role={role}
+    email={email}
+  />
+</Box>
+      {/* <ResumeUploader
         jdText={jdText}
         onResults={setResults}
         client={client}
         role={role}
-      />
+      /> */}
 
       {/* RESULTS TABLE */}
-      <Box sx={{ mt: 3 }}>
+      {/* <Box sx={{ mt: 3 }}>
         <ResultsTable rows={results || []} jdParsed={jdParsed} email={email} />
-      </Box>
+      </Box> */}
 
       {/* SCREENING HISTORY */}
       <ScreeningHistory

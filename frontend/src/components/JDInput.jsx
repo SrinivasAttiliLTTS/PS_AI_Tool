@@ -25,6 +25,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
+import DescriptionIcon from "@mui/icons-material/Description";
 
 // -------------------------
 // Local Storage Helpers
@@ -142,68 +143,159 @@ export default function JDInput({ onParsed }) {
   // -------------------------
   // HANDLE PARSE JD
   // -------------------------
-  const handleUpload = async () => {
-    if (!file && !buildCombinedJDText()) {
-      return alert("Please select a file or enter JD text.");
+  const handleUpload = async (uploadedFile = null) => {
+  const combinedJDText = buildCombinedJDText?.() || "";
+
+  // ✅ validate using arguments / local vars only
+  if (!uploadedFile && !combinedJDText) {
+    alert("Please select a file or enter JD text.");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const formData = new FormData();
+
+    // ✅ ALWAYS prefer argument over state
+    if (uploadedFile) {
+      formData.append("jd_file", uploadedFile);
+    } else {
+      formData.append("jd_text", combinedJDText);
     }
 
-    setLoading(true);
-    try {
-      const formData = new FormData();
-      if (file) formData.append("jd_file", file);
-      if (buildCombinedJDText()) formData.append("jd_text", buildCombinedJDText());
-
-      const response = await
-
-        // fetch("http://localhost:8000/extract-jd-keywords",
-          fetch("https://yield-gps-share-choosing.trycloudflare.com/extract-jd-keywords",
-
-          // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
-          {
-            method: "POST",
-            body: formData,
-          });
-
-      if (!response.ok) {
-        const error = await response.text();
-        throw new Error(`JD parsing failed: ${error}`);
+    const response = await fetch(
+      "https://although-subscriptions-varied-int.trycloudflare.com/extract-jd-keywords",
+            // "http://localhost:8000/extract-jd-keywords",
+      {
+        method: "POST",
+        body: formData,
       }
+    );
 
-      const data = await response.json();
-      // Update state fields
-      setPrimary(data.primarySkills.join(", ").split(",")
-        .map(s => s.trim())
-        .filter(Boolean)
-        .join("\n"));
-      setSecondary(data.secondarySkills.join(", ").split(",")
-        .map(s => s.trim())
-        .filter(Boolean)
-        .join("\n"));
-      setOther(data.otherSkills.join(", ").split(",")
-        .map(s => s.trim())
-        .filter(Boolean)
-        .join("\n"));
-
-      console.log(data);
-      // onParsed(data, buildCombinedJDText());
-      // NEW: include client & role
-      onParsed(
-        {
-          ...data,
-          client,
-          role,
-        },
-        buildCombinedJDText()
-      );
-      // Save automatically if JD name provided
-      if (jdName.trim()) handleSave();
-    } catch (err) {
-      console.error(err);
-      alert(err.message);
-    } finally {
-      setLoading(false);
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(`JD parsing failed: ${error}`);
     }
-  };
+
+    const data = await response.json();
+
+    // ✅ Update UI fields safely
+    setPrimary(
+      (data.primarySkills || [])
+        .map(s => s.trim())
+        .filter(Boolean)
+        .join("\n")
+    );
+
+    setSecondary(
+      (data.secondarySkills || [])
+        .map(s => s.trim())
+        .filter(Boolean)
+        .join("\n")
+    );
+
+    setOther(
+      (data.otherSkills || [])
+        .map(s => s.trim())
+        .filter(Boolean)
+        .join("\n")
+    );
+
+    // ✅ Single source of truth
+    onParsed(
+      {
+        ...data,
+        client,
+        role,
+      },
+      combinedJDText
+    );
+
+    if (jdName?.trim()) handleSave();
+
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
+  // const handleUpload = async (uploadedFile) => {
+
+  // // const handleUpload = async () => {
+  // //   const jdFile = uploadedFile || file;
+  // // const combinedText = buildCombinedJDText();
+
+  // // if (!jdFile && !combinedText) {
+  // //   return alert("Please select a file or enter JD text.");
+  // // }
+
+  //  const jdText = buildCombinedJDText();
+
+  // // ✅ validate using ARGUMENT, not state
+  // if (!uploadedFile && !jdText) {
+  //   alert("Please select a file or enter JD text.");
+  //   return;
+  // }
+  //   setLoading(true);
+  //   try {
+  //     const formData = new FormData();
+  //     if (file) formData.append("jd_file", file);
+  //     if (buildCombinedJDText()) formData.append("jd_text", buildCombinedJDText());
+
+  //     const response = await
+
+  //       fetch("http://localhost:8000/extract-jd-keywords",
+  //         // fetch("https://although-subscriptions-varied-int.trycloudflare.com/extract-jd-keywords",
+
+  //         // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
+  //         {
+  //           method: "POST",
+  //           body: formData,
+  //         });
+
+  //     if (!response.ok) {
+  //       const error = await response.text();
+  //       throw new Error(`JD parsing failed: ${error}`);
+  //     }
+
+  //     const data = await response.json();
+  //     // Update state fields
+  //     setPrimary(data.primarySkills.join(", ").split(",")
+  //       .map(s => s.trim())
+  //       .filter(Boolean)
+  //       .join("\n"));
+  //     setSecondary(data.secondarySkills.join(", ").split(",")
+  //       .map(s => s.trim())
+  //       .filter(Boolean)
+  //       .join("\n"));
+  //     setOther(data.otherSkills.join(", ").split(",")
+  //       .map(s => s.trim())
+  //       .filter(Boolean)
+  //       .join("\n"));
+
+  //     console.log(data);
+  //     // onParsed(data, buildCombinedJDText());
+  //     // NEW: include client & role
+  //     onParsed(
+  //       {
+  //         ...data,
+  //         client,
+  //         role,
+  //       },
+  //       buildCombinedJDText()
+  //     );
+  //     // Save automatically if JD name provided
+  //     if (jdName.trim()) handleSave();
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert(err.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   const handleLoad = (item) => {
     const parsed = parseCombinedJDText(item.jdText);
@@ -602,56 +694,48 @@ export default function JDInput({ onParsed }) {
             </CardContent>
 
             {/* FILE + PARSE BUTTON */}
-            <Grid container spacing={2} alignItems="center">
-              {/* File Upload */}
-              <Grid item xs={8} sx={{ pb: 2 }}>
-                <Button
-                  variant="outlined"
-                  component="label"
-                  fullWidth
-                  sx={{
-                    height: "30px",
-                    borderRadius: "1px",
-                    borderColor: "#1976D2",
-                    borderWidth: "1px",
-                    justifyContent: "flex-start",
-                    fontSize: "13px",
-                    textTransform: "none",
-                    color: "#1976D2", 
-                    "&:hover": {
-                      borderColor: "#1976D2",       // 👈 keep border black on hover
-                      backgroundColor: "transparent",
-                    },
-                  }}
-                >
-                  {file ? file.name : "Upload JD"}
-                  <input
-                    type="file"
-                    hidden
-                    accept=".txt,.pdf,.doc,.docx"
-                    onChange={(e) => setFile(e.target.files[0])}
-                  />
-                </Button>
-              </Grid>
 
-              {/* Parse JD Button */}
-              <Grid item xs={4} sx={{ pb: 2 }}>
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  onClick={handleUpload}
-                  // startIcon={<SaveIcon />}
-startIcon={<FileUploadIcon />} 
-                  sx={{
-                    height: "40px",
-                    whiteSpace: "nowrap",   // 👈 prevents 2-line text
-                    textTransform: "none",
-                  }}
-                >
-                  Parse JD
-                </Button>
-              </Grid>
-            </Grid>
+<Button
+  startIcon={<DescriptionIcon />}
+  variant="outlined"
+  component="label"
+  fullWidth
+  sx={{
+    height: "40px",
+    borderRadius: "8px",
+    borderColor: "#1976D2",
+    borderWidth: "1px",
+    color: "#1976D2",
+    justifyContent: "flex-start",
+    fontSize: "14px",
+    textTransform: "none",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    "&:hover": {
+      borderColor: "#1976D2",
+      backgroundColor: "transparent",
+    },
+  }}
+>
+  {file ? file.name : "Upload JD"}
+
+  <input
+    type="file"
+    hidden
+    accept=".txt,.pdf,.doc,.docx"
+    onChange={(e) => {
+      const selectedFile = e.target.files?.[0];
+      if (!selectedFile) return;
+
+      setFile(selectedFile);
+      handleUpload(selectedFile); // ✅ works now
+      e.target.value = "";        // ✅ re-upload same file works
+    }}
+  />
+</Button>
+
+
 
 
             {/* <Button
