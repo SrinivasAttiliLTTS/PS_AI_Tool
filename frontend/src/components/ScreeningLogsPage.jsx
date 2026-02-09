@@ -91,10 +91,23 @@ import ScreeningResultsTable from "../components/ScreeningResultsTable";
 import ScreeningCharts from "../components/ScreeningCharts";
 
 /* ================= HELPER: QUARTER START ================= */
+// const getQuarterStart = (date = new Date()) => {
+//   const month = date.getMonth(); // 0-11
+//   const quarterStartMonth = Math.floor(month / 3) * 3;
+//   return new Date(date.getFullYear(), quarterStartMonth, 1);
+// };
+
 const getQuarterStart = (date = new Date()) => {
-  const month = date.getMonth(); // 0-11
+  const month = date.getMonth();
   const quarterStartMonth = Math.floor(month / 3) * 3;
-  return new Date(date.getFullYear(), quarterStartMonth, 1);
+
+  // 👇 Set time to noon to avoid timezone shift
+  return new Date(
+    date.getFullYear(),
+    quarterStartMonth,
+    1,
+    12, 0, 0
+  );
 };
 
 export default function ScreeningLogsPage() {
