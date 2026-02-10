@@ -16,7 +16,7 @@
 //   });
 
 //   useEffect(() => {
-//         // fetch("https://although-subscriptions-varied-int.trycloudflare.com/logs/screening")
+//         // fetch("https://default-won-old-challenged.trycloudflare.com/logs/screening")
 //     fetch("http://localhost:8000/logs/screening")
 //       .then((res) => res.json())
 //       .then(setLogs)
@@ -125,7 +125,7 @@ export default function ScreeningLogsPage() {
   /* ================= FETCH LOGS ================= */
   useEffect(() => {
     // fetch("http://localhost:8000/logs/screening")
-        fetch("https://although-subscriptions-varied-int.trycloudflare.com/logs/screening")
+        fetch("https://default-won-old-challenged.trycloudflare.com/logs/screening")
       .then((res) => res.json())
       .then(setLogs)
       .catch(() => setLogs([]));

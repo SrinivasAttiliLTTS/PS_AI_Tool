@@ -165,7 +165,7 @@ export default function JDInput({ onParsed }) {
     }
 
     const response = await fetch(
-      "https://although-subscriptions-varied-int.trycloudflare.com/extract-jd-keywords",
+      "https://default-won-old-challenged.trycloudflare.com/extract-jd-keywords",
             // "http://localhost:8000/extract-jd-keywords",
       {
         method: "POST",
@@ -248,7 +248,7 @@ export default function JDInput({ onParsed }) {
   //     const response = await
 
   //       fetch("http://localhost:8000/extract-jd-keywords",
-  //         // fetch("https://although-subscriptions-varied-int.trycloudflare.com/extract-jd-keywords",
+  //         // fetch("https://default-won-old-challenged.trycloudflare.com/extract-jd-keywords",
 
   //         // fetch("https://ps-ai-tool-mk0p.onrender.com/extract-jd-keywords",
   //         {

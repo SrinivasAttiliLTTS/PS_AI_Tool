@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const API_BASE = "https://ps-ai-tool-mk0p.onrender.com"; 
-const API_BASE = "https://although-subscriptions-varied-int.trycloudflare.com";
+const API_BASE = "https://default-won-old-challenged.trycloudflare.com";
 // const API_BASE = "http://localhost:8000";
 // const API_BASE = process.env.REACT_APP_API_BASE || "https://ai-resume-screen-backend.onrender.com";
 export async function uploadJD(jdFile, jdText) {
