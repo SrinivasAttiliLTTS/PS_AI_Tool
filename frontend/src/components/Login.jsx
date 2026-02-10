@@ -16,7 +16,7 @@ export default function Login({ onLogin }) {
     "manjunath.hs@ltts.com",
     "madhu.balan@ltts.com",
     "sagar.patil@ltts.com",
-    "Harini.Arumugam@Ltts.com"
+    "harini.arumugam@ltts.com"
   ];
 
   const sendOtp = async () => {
