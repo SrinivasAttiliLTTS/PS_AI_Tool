@@ -165,7 +165,7 @@ export default function JDInput({ onParsed }) {
     }
 
     const response = await fetch(
-      "https://default-won-old-challenged.trycloudflare.com/extract-jd-keywords",
+      "https://rings-flashing-mpg-mines.trycloudflare.com/extract-jd-keywords",
             // "http://localhost:8000/extract-jd-keywords",
       {
         method: "POST",

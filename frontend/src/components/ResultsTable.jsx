@@ -129,6 +129,8 @@ export default function ResultsTable({
   role,
   email,
 }) {
+  const [status, setStatus] = useState(""); // ✅ Add this
+
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -166,32 +168,63 @@ export default function ResultsTable({
   ];
 
   // ================= ANALYZE =================
-  const analyze = async () => {
-    if (!jdText || files.length === 0) return;
+  // const analyze = async () => {
+  //   if (!jdText || files.length === 0) return;
 
-    setLoading(true);
-    try {
-      const { results } = await analyzeResumes(jdText, files, client, role);
+  //   setLoading(true);
+  //   try {
+  //     const { results } = await analyzeResumes(jdText, files, client, role);
 
-      const merged = results.map((r, i) => ({
-        Name: files[i]?.name || `Candidate ${i + 1}`,
-        Strengths: r.Strengths || "",
-        "Missing Primary": r["Missing Primary"] || "",
-        "Missing Secondary": r["Missing Secondary"] || "",
-        "Years of Experience": r["Years of Experience"] || "",
-        "Primary Score": r["Primary Score"] || "",
-        "Secondary Score": r["Secondary Score"] || "",
-        "Overall Score": r["Overall Score"] || "",
-        Status: r.Status || "",
-      }));
+  //     const merged = results.map((r, i) => ({
+  //       Name: files[i]?.name || `Candidate ${i + 1}`,
+  //       Strengths: r.Strengths || "",
+  //       "Missing Primary": r["Missing Primary"] || "",
+  //       "Missing Secondary": r["Missing Secondary"] || "",
+  //       "Years of Experience": r["Years of Experience"] || "",
+  //       "Primary Score": r["Primary Score"] || "",
+  //       "Secondary Score": r["Secondary Score"] || "",
+  //       "Overall Score": r["Overall Score"] || "",
+  //       Status: r.Status || "",
+  //     }));
 
-      setRows(merged);
-    } catch (err) {
-      console.error(err);
-      alert("Analysis failed");
-    }
-    setLoading(false);
-  };
+  //     setRows(merged);
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("Analysis failed");
+  //   }
+  //   setLoading(false);
+  // };
+const analyze = async () => {
+  if (!jdText || files.length === 0) return;
+
+  setLoading(true); // show loader
+  setRows([]);
+
+  try {
+    const { results } = await analyzeResumes(jdText, files, client, role);
+
+    const merged = results.map((r, i) => ({
+      Name: r.Name || `Candidate ${i + 1}`,
+      Strengths: r.Strengths || "",
+      "Missing Primary": r["Missing Primary"] || "",
+      "Missing Secondary": r["Missing Secondary"] || "",
+      "Years of Experience": r["Years of Experience"] || "",
+      "Primary Score": r["Primary Score"] || "",
+      "Secondary Score": r["Secondary Score"] || "",
+      "Overall Score": r["Overall Score"] || "",
+      Status: r.Status || "",
+    }));
+
+    setRows(merged);
+  } catch (err) {
+    console.error(err);
+    alert("Analysis failed");
+  }
+
+  setLoading(false); // hide loader
+};
+
+
 
   // ================= EXPORT CSV =================
   const exportCSV = () => {
