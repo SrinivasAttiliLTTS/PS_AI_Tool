@@ -128,6 +128,7 @@ export default function ResultsTable({
   client,
   role,
   email,
+  selectionThreshold
 }) {
   const [status, setStatus] = useState(""); // ✅ Add this
 
@@ -194,34 +195,20 @@ export default function ResultsTable({
   //   }
   //   setLoading(false);
   // };
+
 const analyze = async () => {
   if (!jdText || files.length === 0) return;
 
-  setLoading(true); // show loader
-  setRows([]);
-
+  setLoading(true);
   try {
-    const { results } = await analyzeResumes(jdText, files, client, role);
-
-    const merged = results.map((r, i) => ({
-      Name: r.Name || `Candidate ${i + 1}`,
-      Strengths: r.Strengths || "",
-      "Missing Primary": r["Missing Primary"] || "",
-      "Missing Secondary": r["Missing Secondary"] || "",
-      "Years of Experience": r["Years of Experience"] || "",
-      "Primary Score": r["Primary Score"] || "",
-      "Secondary Score": r["Secondary Score"] || "",
-      "Overall Score": r["Overall Score"] || "",
-      Status: r.Status || "",
-    }));
-
-    setRows(merged);
+    const { results } = await analyzeResumes(jdText, files, client, role, selectionThreshold);
+    setRows(results);
   } catch (err) {
     console.error(err);
     alert("Analysis failed");
+  } finally {
+    setLoading(false);
   }
-
-  setLoading(false); // hide loader
 };
 
 

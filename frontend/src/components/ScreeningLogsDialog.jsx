@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import API_BASE from "../config/apiConfig";
 
 export default function ScreeningLogsDialog({ open, onClose }) {
   const [logs, setLogs] = useState([]);
@@ -20,10 +21,7 @@ useEffect(() => {
   if (!open) return;
 
   console.log("📡 Fetching screening logs...");
-
-  // fetch("http://localhost:8000/logs/screening")
-        fetch("https://rings-flashing-mpg-mines.trycloudflare.com/logs/screening")
-  // fetch("https://ps-ai-tool-mk0p.onrender.com/logs/screening")
+        fetch(`${API_BASE}/logs/screening`)
     .then((res) => {
       console.log("✅ Response status:", res.status);
       return res.json();

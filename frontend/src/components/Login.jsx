@@ -2,9 +2,7 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import axios from "axios";
-
-const API = "https://rings-flashing-mpg-mines.trycloudflare.com";
-// const API = "http://localhost:8000";
+import API_BASE from "../config/apiConfig"
 
 export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
@@ -26,7 +24,7 @@ export default function Login({ onLogin }) {
       return;
     }
     try {
-      await axios.post(`${API}/auth/send-otp`, new URLSearchParams({ email }));
+      await axios.post(`${API_BASE}/auth/send-otp`, new URLSearchParams({ email }));
       setStep(2);
     } catch (err) {
       console.error(err);
@@ -37,7 +35,7 @@ export default function Login({ onLogin }) {
   const verifyOtp = async () => {
     try {
       const res = await axios.post(
-        `${API}/auth/verify-otp`,
+        `${API_BASE}/auth/verify-otp`,
         new URLSearchParams({ email, otp })
       );
 

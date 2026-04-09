@@ -1,9 +1,7 @@
+// src/api/api.js
 import axios from "axios";
+import API_BASE from "../config/apiConfig";
 
-// const API_BASE = "https://ps-ai-tool-mk0p.onrender.com"; 
-const API_BASE = "https://rings-flashing-mpg-mines.trycloudflare.com";
-// const API_BASE = "http://localhost:8000";
-// const API_BASE = process.env.REACT_APP_API_BASE || "https://ai-resume-screen-backend.onrender.com";
 export async function uploadJD(jdFile, jdText) {
   const fd = new FormData();
   if (jdFile) fd.append("jd_file", jdFile);
@@ -12,37 +10,33 @@ export async function uploadJD(jdFile, jdText) {
   return res.data;
 }
 
-// export async function analyzeResumes(jdText, files, client, role) {
-//   const email = localStorage.getItem("email");
-//   const fd = new FormData();
-//   fd.append("jd_text", jdText);
-//   for (let i = 0; i < files.length; i++) fd.append("resumes", files[i], files[i].name);
-//   fd.append("client", client || "");
-//   fd.append("role", role || "");
-//   fd.append("user", email || "");
-
-//   const res = await axios.post(`${API_BASE}/analyze-resumes`, fd, { headers: { "Content-Type": "multipart/form-data" } });
-//   return res.data;
-// }
-
-
-export async function analyzeResumes(jdText, files, client, role) {
+export async function analyzeResumes(jdText, files, client, role, threshold) {
   const email = localStorage.getItem("email");
+
   const fd = new FormData();
   fd.append("jd_text", jdText);
-  for (let i = 0; i < files.length; i++) fd.append("resumes", files[i], files[i].name);
+
+  for (let i = 0; i < files.length; i++) {
+    fd.append("resumes", files[i], files[i].name);
+  }
+
   fd.append("client", client || "");
   fd.append("role", role || "");
   fd.append("user", email || "");
+  fd.append("selection_threshold", threshold);
+  
+  const res = await axios.post(
+    `${API_BASE}/analyze-resumes`,
+    fd,
+    {
+      headers: { "Content-Type": "multipart/form-data" },
+      timeout: 10 * 60 * 1000, // ✅ ADD THIS (10 minutes)
+    }
+  );
 
-  // ✅ Send resumes to backend and wait for the results
-  const res = await axios.post(`${API_BASE}/analyze-resumes`, fd, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
-
-  // res.data should contain { results: [...] }
-  return res.data;
+  return res.data; // ✅ unchanged
 }
+
 
 
 export async function exportExcel(results) {

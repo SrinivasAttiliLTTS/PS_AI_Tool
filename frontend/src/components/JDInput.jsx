@@ -26,6 +26,7 @@ import FileUploadIcon from "@mui/icons-material/FileUpload";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import DescriptionIcon from "@mui/icons-material/Description";
+import API_BASE from "../config/apiConfig";
 
 // -------------------------
 // Local Storage Helpers
@@ -165,8 +166,7 @@ export default function JDInput({ onParsed }) {
     }
 
     const response = await fetch(
-      "https://rings-flashing-mpg-mines.trycloudflare.com/extract-jd-keywords",
-            // "http://localhost:8000/extract-jd-keywords",
+      `${API_BASE}/extract-jd-keywords`,
       {
         method: "POST",
         body: formData,
